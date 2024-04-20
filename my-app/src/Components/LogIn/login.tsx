@@ -1,11 +1,16 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
-import User from "../../types/types";
+import { ChangeEvent, FormEvent, useState } from "react";
+
+import { LogInUser, UserDetails } from "../../types/types";
 import musicServices from "../../apis/services/music.services";
+import logo from "../../Images/music.jpg";
+import { useNavigate } from "react-router-dom";
+
 export default function Login() {
-  const [users, setUsers] = useState<User>({
+  const [users, setUsers] = useState<LogInUser>({
     username: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const [logInStatus, setLogInStatus] = useState<string | null>(null);
 
@@ -18,20 +23,22 @@ export default function Login() {
     e.preventDefault();
     try {
       const response = await musicServices.signIn(users);
-      console.log(response.data);
+
+      // Add the token to session storage
       const token = response.data.accessToken;
-      // Save jwt in session storage
       sessionStorage.setItem("token", token);
 
-      if (response.status === 201) {
-        console.log(response);
-        console.log("Success");
-        // Handle successful login, e.g., redirect to another page
+      if (response.status === 200) {
+        const logInUser: UserDetails = response.data;
+        const sessionToken = sessionStorage.getItem("token");
+        if (logInUser.accessToken === sessionToken) {
+          // Redirect user to main page
+          navigate("/user");
+        }
       } else {
         setLogInStatus("Username or Password is Incorrect");
       }
     } catch (error) {
-      // Handle any unexpected errors
       console.error("Error occurred during login:", error);
       setLogInStatus("Username or password is Invalid");
     }
@@ -44,13 +51,7 @@ export default function Login() {
           className="form-signin border p-5 text-center"
           onSubmit={handleSubmit}
         >
-          <img
-            className="mb-4"
-            src="../../assets/brand/bootstrap-solid.svg"
-            alt=""
-            width="72"
-            height="72"
-          />
+          <img className="mb-4" src={logo} alt="" width="72" height="72" />
           <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
           <label htmlFor="text" className="sr-only">
             User Name
@@ -60,6 +61,7 @@ export default function Login() {
             id="inputName"
             className="form-control"
             placeholder="User name"
+            autoComplete="on"
             name="username"
             value={users.username}
             onChange={handleInput}
@@ -72,6 +74,7 @@ export default function Login() {
             id="inputPassword"
             className="form-control"
             placeholder="Password"
+            autoComplete="on"
             name="password"
             value={users.password}
             onChange={handleInput}
