@@ -28,7 +28,7 @@ const getAllSong = (token: string) => {
   )
 }
 
-
+// Add to playlist
 const addToPlayList = (song:string, token:string, userId:string)=>{
   return http.post(`/api/playlist/${userId}`,{song},
     {
@@ -38,11 +38,59 @@ const addToPlayList = (song:string, token:string, userId:string)=>{
     }
   )
 }
+
+
+// Fetch User Play List
+const getPlaylist =(token:string)=>{
+  return http.get(`/api/playlist`,
+    {
+      headers:{
+        "Authorization":`Bearer ${token}`
+      }
+    }
+  )
+}
+
+
+// Add playList In sessionStorage and Server: Having Error
+const addToStorage = (token: string, songId: string) => {
+  return http.post(
+    `/api/playlist/add`,
+    {
+      songId: songId,
+    },
+    {
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+
+// Remove from session storage and server
+const removeFromServers =(token:string, songId:string)=>{
+  return http.post(
+    `api/playlist/remove`,
+    {
+      songId:songId,
+    },
+    {
+      headers:{
+        "Authorization":`Bearer ${token}`
+      }
+    }
+
+  )
+}
 export default {
   signIn,
   getSong,
   getAllSong,
-  addToPlayList
+  addToPlayList,
+  getPlaylist,
+  addToStorage,
+  removeFromServers
 }
 
 

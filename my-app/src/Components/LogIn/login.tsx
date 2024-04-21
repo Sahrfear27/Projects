@@ -49,7 +49,7 @@ export default function Login() {
     setUsers({ username: "", password: "" });
   };
   return (
-    <div className="container-fluid d-flex justify-content-center align-items-center vh-100 ">
+    <div className="container-fluid d-flex justify-content-center align-items-center vh-100 border-0">
       <form
         className="form-signin border p-5 text-center logInCard"
         onSubmit={handleSubmit}

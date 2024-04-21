@@ -3,15 +3,22 @@ import { FaMusic } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import PubSub from "pubsub-js";
 import musicServices from "../../../apis/services/music.services";
+import { musicDataBase } from "../../../types/types";
+import PlayList from "../PlayList/PlayList.music";
+type Props = {
+  onSearch: () => void;
+};
 
-export default function SearchMusic() {
+export default function SearchMusic(props: Props) {
+  const { onSearch } = props;
   const navigate = useNavigate();
 
+  // Search for music
   const [userSearch, setUserSearch] = useState("");
-
   const handleInput = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       const result = e.currentTarget.value.trim();
+      onSearch();
       if (result) {
         try {
           PubSub.publish("musicList", {
@@ -24,6 +31,7 @@ export default function SearchMusic() {
 
           // If the response status is correct, send the response to the AddplayList
           if (response?.status === 200) {
+            // addToPlayList(response.data);
             PubSub.publish("musicList", {
               isFirst: false,
               isLoading: false,
@@ -44,12 +52,24 @@ export default function SearchMusic() {
     }
   };
 
-  // LogOut: Remove the token and navigate base to login
+  // From page LogOut: Remove the token and navigate base to login
   const handleLogOut = () => {
     sessionStorage.removeItem("token");
     navigate("/");
   };
 
+  // // Add search music to playList
+  // const [newMusic, setNewMusic] = useState<musicDataBase[]>([]);
+
+  // const handleAdd = (music: musicDataBase) => {
+  //   const musicExist = newMusic.some((songs) => songs.id === music.id);
+  //   if (!musicExist) {
+  //     setNewMusic([...newMusic, music]);
+  //     // Add the music to session storage
+  //     const updatedPlaylist = JSON.stringify([...newMusic, music]);
+  //     sessionStorage.setItem("playlist", updatedPlaylist);
+  //   }
+  // };
   return (
     <div>
       <nav className="navbar bg-body-tertiary">

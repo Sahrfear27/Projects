@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AudioPlayer from "react-h5-audio-player";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { MdSkipPrevious } from "react-icons/md";
 import { MdSkipNext } from "react-icons/md";
@@ -10,10 +11,26 @@ export default function Sound() {
   const progressBar = () => {
     setProgress((prevProgress) => prevProgress + 100);
   };
+
+  // const Player = () => (
+
+  // );
   return (
     <div>
       <p>Song Title</p>
-      <div>
+      <table className="table-playing">
+        <tr className="tr-headers-playing">
+          <td>
+            <AudioPlayer
+              autoPlay
+              src="http://localhost:9000/music/mocking_bird.mp3"
+              onPlay={(e) => console.log("onPlay")}
+              // other props here
+            />
+          </td>
+        </tr>
+      </table>
+      {/* <div>
         <div className="d-flex justify-content-between">
           <span>0.00</span>
           <span style={{ flex: "1 1 auto" }}>
@@ -43,7 +60,7 @@ export default function Sound() {
             <span></span>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
