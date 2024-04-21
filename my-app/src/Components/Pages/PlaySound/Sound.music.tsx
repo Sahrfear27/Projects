@@ -26,7 +26,7 @@ export default function Sound(props: Props) {
   const { musicList } = props;
   useEffect(() => {
     const token = PubSub.subscribe("playMusic", (msg, data) => {
-      console.log(data, " music played");
+      // console.log(data, " music played");
       setPlay(Array.isArray(data) ? data : [data]);
       setCurrentMusicIndex(data.id);
     });
@@ -58,7 +58,7 @@ export default function Sound(props: Props) {
           <p>{music.title}</p>
           <AudioPlayer
             key={index}
-            volume={0.5} // Corrected volume prop to use number instead of string
+            volume={0.5}
             src={`http://localhost:9000/${music.urlPath}`}
             showSkipControls
             onClickNext={handleClickNext}
@@ -72,108 +72,3 @@ export default function Sound(props: Props) {
     </div>
   );
 }
-
-// // Keep:
-// function Sounds() {
-//   const [progress, setProgress] = useState(0);
-//   const [duration, setDuration] = useState(0);
-//   const [currentTime, setCurrentTime] = useState(0);
-//   const [currentMusicIndex, setCurrentMusicIndex] = useState<number>(0);
-//   const [play, setPlay] = useState<musicDataBase[]>([]);
-
-//   const handlePlay = () => {
-//     console.log("Play button clicked");
-//   };
-
-//   const handlePause = () => {
-//     console.log("Pause button clicked");
-//   };
-
-//   const handleNext = () => {
-//     if (currentMusicIndex < play.length - 1) {
-//       setCurrentMusicIndex(currentMusicIndex + 1);
-//     } else {
-//       setCurrentMusicIndex(0);
-//     }
-//     console.log("Next button clicked");
-//   };
-
-//   const handlePrevious = () => {
-//     console.log("Previous button clicked");
-//   };
-
-//   const handleRepeat = () => {
-//     console.log("Repeat button clicked");
-//   };
-
-//   useEffect(() => {
-//     const token = PubSub.subscribe("playMusic", (msg, data) => {
-//       setPlay(Array.isArray(data) ? data : [data]);
-//     });
-//     return () => {
-//       PubSub.unsubscribe(token);
-//     };
-//   }, []);
-
-//   return (
-//     <div>
-//       <div>
-//         {play.map((songs, index) => (
-//           <div key={index}>
-//             <p>{songs.title}</p>
-//             <AudioPlayer
-//               key={index}
-//               src={`http://localhost:9000/${songs.urlPath}`}
-//               onPlay={handlePlay}
-//               onPause={handlePause}
-//               onEnded={handleNext}
-//               listenInterval={1000}
-//               onListen={(e) => {
-//                 const audioElement = e.target as HTMLAudioElement;
-//                 setDuration(audioElement.duration);
-//                 setCurrentTime(audioElement.currentTime);
-//               }}
-
-//               // other props here
-//             />
-//           </div>
-//         ))}
-//       </div>
-//       <div>
-//         <div className="d-flex justify-content-between">
-//           <span>{currentTime.toFixed(2)}</span>
-//           <span style={{ flex: "1 1 auto" }}>
-//             <ProgressBar
-//               completed={(currentTime / duration) * 100}
-//               bgColor="#00695c"
-//             />
-//           </span>
-//           <span>{duration.toFixed(2)}</span>
-//         </div>
-//         <div className="d-flex justify-content-around">
-//           <span onClick={handleRepeat}>
-//             <BsRepeat1 />
-//           </span>
-//           <div>
-//             <span onClick={handlePrevious}>
-//               <MdSkipPrevious />
-//             </span>
-//             <span onClick={handlePlay}>
-//               <FaCirclePause />
-//             </span>
-//             <span onClick={handleNext}>
-//               <MdSkipNext />
-//             </span>
-//           </div>
-//           <div>
-//             <span>
-//               <FaVolumeHigh />
-//             </span>
-//             <span></span>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-// export default Sound;

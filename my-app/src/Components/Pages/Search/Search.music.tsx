@@ -6,7 +6,7 @@ import musicServices from "../../../apis/services/music.services";
 import { musicDataBase } from "../../../types/types";
 import PlayList from "../PlayList/PlayList.music";
 type Props = {
-  onSearch: () => void;
+  onSearch: (result: any) => void;
 };
 
 export default function SearchMusic(props: Props) {
@@ -18,36 +18,36 @@ export default function SearchMusic(props: Props) {
   const handleInput = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       const result = e.currentTarget.value.trim();
-      onSearch();
-      if (result) {
-        try {
-          PubSub.publish("musicList", {
-            isFirst: false,
-            isLoading: true,
-            isError: false,
-            playList: [],
-          });
-          const response = await musicServices.getSong(result);
-          // If the response status is correct, send the response to the AddplayList
-          if (response?.status === 200) {
-            // addToPlayList(response.data);
-            PubSub.publish("musicList", {
-              isFirst: false,
-              isLoading: false,
-              isError: false,
-              playList: response.data,
-            });
-          }
-        } catch (error) {
-          PubSub.publish("musicList", {
-            isFirst: false,
-            isLoading: false,
-            isError: true,
-            playList: [],
-          });
-        }
-      }
-      setUserSearch("");
+      onSearch(result);
+      // if (result) {
+      //   try {
+      //     PubSub.publish("musicList", {
+      //       isFirst: false,
+      //       isLoading: true,
+      //       isError: false,
+      //       playList: [],
+      //     });
+      //     const response = await musicServices.getSong(result);
+      //     // If the response status is correct, send the response to the AddplayList
+      //     if (response?.status === 200) {
+      //       // addToPlayList(response.data);
+      //       PubSub.publish("musicList", {
+      //         isFirst: false,
+      //         isLoading: false,
+      //         isError: false,
+      //         playList: response.data,
+      //       });
+      //     }
+      //   } catch (error) {
+      //     PubSub.publish("musicList", {
+      //       isFirst: false,
+      //       isLoading: false,
+      //       isError: true,
+      //       playList: [],
+      //     });
+      //   }
+      // }
+      // setUserSearch("");
     }
   };
 
