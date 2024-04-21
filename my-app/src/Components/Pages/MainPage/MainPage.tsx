@@ -11,20 +11,20 @@ import { musicDataBase } from "../../../types/types";
 import { PlayListDataBase } from "../../../types/types";
 
 export default function MainPage() {
-  const [songs, setSearchResponse] = useState<musicDataBase[]>([]);
+  const [totalMusic, setTotalMusic] = useState<musicDataBase[]>([]);
   const [searched, setSearched] = useState(false);
 
   // State for player list
   const [newPlayList, setNewPlayList] = useState<musicDataBase[]>([]);
 
-  // Get all music
+  // Get Total Music
   const token = sessionStorage.getItem("token") as string;
   useEffect(() => {
-    async function getallSong() {
-      const response = await musicServices.getAllSong(token);
-      setSearchResponse(response.data);
+    async function totalSong() {
+      const response = await musicServices.getTotalSong(token);
+      setTotalMusic(response.data);
     }
-    getallSong();
+    totalSong();
   }, []);
 
   const handleSearch = () => {
@@ -33,9 +33,9 @@ export default function MainPage() {
 
   // Add the music: Not working for searched music
   const handleAdd = (music: musicDataBase) => {
-    const exist = newPlayList.some((item) => item.id === music.id);
+    const existingId = newPlayList.some((item) => item.id === music.id);
 
-    if (!exist) {
+    if (!existingId) {
       setNewPlayList([...newPlayList, music]);
 
       const updatedPlaylist = JSON.stringify([...newPlayList, music]);
@@ -59,30 +59,30 @@ export default function MainPage() {
         throw Error("Error fetching user playlist:");
       }
     }
-
     fetchUserPlayList();
   }, [token]);
 
-  // Add playList to Sesson storage
-  useEffect(() => {
-    async function addPlayListToSessionStorage() {
-      try {
-        const songId = newPlayList.map((songs) => songs.id);
-        for (let ids of songId) {
-          await musicServices.addToStorage(token, ids);
-        }
+  // Add playList to sesson storage and server: This will give error
 
-        const updatedPlayList = await musicServices.getPlaylist(token);
-        setNewPlayList(updatedPlayList.data);
+  // useEffect(() => {
+  //   async function addPlayListToSessionStorage() {
+  //     try {
+  //       const songId = newPlayList.map((songs) => songs.id);
+  //       for (let ids of songId) {
+  //         await musicServices.addPlayListToStorage(token, ids);
+  //       }
 
-        const updatedList = JSON.stringify(updatedPlayList.data);
-        sessionStorage.setItem("playlist", updatedList);
-      } catch (error) {
-        console.log("Error Occurs while adding playlist");
-      }
-    }
-    addPlayListToSessionStorage();
-  }, [newPlayList, token]);
+  //       const updatedPlayList = await musicServices.getPlaylist(token);
+  //       setNewPlayList(updatedPlayList.data);
+
+  //       const updatedList = JSON.stringify(updatedPlayList.data);
+  //       sessionStorage.setItem("playlist", updatedList);
+  //     } catch (error) {
+  //       console.log("Error Occurs while adding playlist");
+  //     }
+  //   }
+  //   addPlayListToSessionStorage();
+  // }, [newPlayList, token]);
 
   // Remove from client and server
   useEffect(() => {
@@ -103,6 +103,9 @@ export default function MainPage() {
     }
     removePlayList();
   }, []);
+
+  // Send the added music from playList to sound
+  const play = (music: musicDataBase) => {};
   return (
     <div className="container card">
       <h4>MainPage Session</h4>
@@ -121,7 +124,7 @@ export default function MainPage() {
               </tr>
             </thead>
             <tbody>
-              {songs.map((music, index) => (
+              {totalMusic.map((music, index) => (
                 <tr key={index}>
                   <td>{index}</td>
                   <td>{music.releaseDate}</td>
@@ -153,7 +156,7 @@ export default function MainPage() {
         deleteMusic={deleteSongFromList}
       />
       <br />
-      <Sound />
+      <Sound musicList={newPlayList} />
     </div>
   );
 }

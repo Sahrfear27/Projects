@@ -4,7 +4,8 @@ import { FaRegCirclePlay } from "react-icons/fa6";
 import { searchResponse } from "../../../types/types";
 import { musicDataBase } from "../../../types/types";
 import musicServices from "../../../apis/services/music.services";
-
+import Sound from "../PlaySound/Sound.music";
+import PubSub from "pubsub-js";
 type Props = {
   addMusic: musicDataBase[];
   onAddMusicToPlayList: (music: musicDataBase) => void;
@@ -13,6 +14,9 @@ type Props = {
 export default function PlayList(props: Props) {
   // onAddMusicToPlayList: Search music is unable to be added
   const { addMusic, onAddMusicToPlayList, deleteMusic } = props;
+
+  // Publish the selected music to sound component so that sound component can play it
+  PubSub.publish("play", addMusic);
 
   return (
     <div className="mt-5">
@@ -51,7 +55,11 @@ export default function PlayList(props: Props) {
                         onAddMusicToPlayList(music);
                       }}
                     >
-                      <FaRegCirclePlay />
+                      <FaRegCirclePlay
+                        onClick={() => {
+                          PubSub.publish("playMusic", music);
+                        }}
+                      />
                     </a>
                   </span>
                 </p>

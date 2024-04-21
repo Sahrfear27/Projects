@@ -17,7 +17,7 @@ const getSong = (query: string) => {
 }
 
 // Get allSong
-const getAllSong = (token: string) => {
+const getTotalSong = (token: string) => {
 
   return http.get("/api/music",
     {
@@ -27,6 +27,8 @@ const getAllSong = (token: string) => {
     }
   )
 }
+
+
 
 // Add to playlist
 const addToPlayList = (song:string, token:string, userId:string)=>{
@@ -51,9 +53,8 @@ const getPlaylist =(token:string)=>{
   )
 }
 
-
 // Add playList In sessionStorage and Server: Having Error
-const addToStorage = (token: string, songId: string) => {
+const addPlayListToStorage = (token: string, songId: string) => {
   return http.post(
     `/api/playlist/add`,
     {
@@ -86,10 +87,10 @@ const removeFromServers =(token:string, songId:string)=>{
 export default {
   signIn,
   getSong,
-  getAllSong,
+  getTotalSong,
   addToPlayList,
   getPlaylist,
-  addToStorage,
+  addPlayListToStorage,
   removeFromServers
 }
 

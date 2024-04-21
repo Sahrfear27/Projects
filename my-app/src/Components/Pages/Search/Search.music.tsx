@@ -28,7 +28,6 @@ export default function SearchMusic(props: Props) {
             playList: [],
           });
           const response = await musicServices.getSong(result);
-
           // If the response status is correct, send the response to the AddplayList
           if (response?.status === 200) {
             // addToPlayList(response.data);
@@ -54,7 +53,7 @@ export default function SearchMusic(props: Props) {
 
   // From page LogOut: Remove the token and navigate base to login
   const handleLogOut = () => {
-    sessionStorage.removeItem("token");
+    // sessionStorage.removeItem("token");
     navigate("/");
   };
 
