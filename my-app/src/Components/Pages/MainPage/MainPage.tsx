@@ -12,23 +12,32 @@ import { PlayListDataBase } from "../../../types/types";
 
 export default function MainPage() {
   const [totalMusic, setTotalMusic] = useState<musicDataBase[]>([]);
-  const [searched, setSearched] = useState(false);
-
+  // const [searched, setSearched] = useState(false);
+  const [searchText, setSearchText] = useState("");
   // State for player list
   const [newPlayList, setNewPlayList] = useState<musicDataBase[]>([]);
 
   // Get Total Music
   const token = sessionStorage.getItem("token") as string;
   useEffect(() => {
-    async function totalSong() {
+    totalSong(searchText);
+  }, []);
+
+  async function totalSong(search: any) {
+    if (search.trim()) {
+      const response = await musicServices.getSong(search);
+      setTotalMusic(response.data);
+    } else {
       const response = await musicServices.getTotalSong(token);
       setTotalMusic(response.data);
     }
-    totalSong();
-  }, []);
+  }
 
-  const handleSearch = () => {
-    setSearched(true);
+  const handleSearch = (data: string) => {
+    setSearchText(data);
+    // debugger;
+    totalSong(data);
+    // setSearched(true);
   };
 
   // Add the music: Not working for searched music
@@ -110,21 +119,24 @@ export default function MainPage() {
     <div className="container card">
       <h4>MainPage Session</h4>
       <SearchMusic onSearch={handleSearch} />
-      {!searched && (
-        <>
-          <br />
-          <h4>Music List</h4>
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th>Index</th>
-                <th>Release Date</th>
-                <th>Title</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {totalMusic.map((music, index) => (
+
+      <>
+        <br />
+        <h4>Music List vj</h4>
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Release Date</th>
+              <th>Title</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {totalMusic.length == 0 ? (
+              <td>No songs</td>
+            ) : (
+              totalMusic.map((music, index) => (
                 <tr key={index}>
                   <td>{index}</td>
                   <td>{music.releaseDate}</td>
@@ -142,13 +154,14 @@ export default function MainPage() {
                     </a>
                   </td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          <br />
-        </>
-      )}
-      {searched && <InterestSong />}
+              ))
+            )}
+          </tbody>
+        </table>
+        <br />
+      </>
+
+      {/* {searched && <InterestSong />} */}
       <br />
       <PlayList
         addMusic={newPlayList}
