@@ -4,6 +4,14 @@
   background-size: cover;
 
 } */
-/* .card{
+.card{
+  border-radius: 15px;
+  /* background-color: #003554; */
+  background-color: #032030;
+  color: aliceblue;
+  
+}
+
+/* .tableCard {
   background-color: red;
 } */

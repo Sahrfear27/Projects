@@ -1,27 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { MdDelete } from "react-icons/md";
-import { FaRegCirclePlay } from "react-icons/fa6";
-import { searchResponse } from "../../../types/types";
 import { musicDataBase } from "../../../types/types";
-import musicServices from "../../../apis/services/music.services";
-import Sound from "../PlaySound/Sound.music";
+import { FaRegCirclePlay } from "react-icons/fa6";
+import { MdDelete } from "react-icons/md";
 import PubSub from "pubsub-js";
+import "./playList.css";
+
 type Props = {
   addMusic: musicDataBase[];
-  onAddMusicToPlayList: (music: musicDataBase) => void;
   deleteMusic: (id: string) => void;
 };
 export default function PlayList(props: Props) {
-  // onAddMusicToPlayList: Search music is unable to be added
-  const { addMusic, onAddMusicToPlayList, deleteMusic } = props;
-
-  // Publish the selected music to sound component so that sound component can play it
-  PubSub.publish("play", addMusic);
+  const { addMusic, deleteMusic } = props;
 
   return (
-    <div className="mt-5">
+    <div className="m-5 playCard ">
       <h4>PlayList</h4>
-      <table className="table table-hover ">
+      <table className="table table-hover table-dark ">
         <thead>
           <tr>
             <th>Index</th>
@@ -33,7 +26,7 @@ export default function PlayList(props: Props) {
         <tbody>
           {addMusic.map((music, index) => (
             <tr key={index}>
-              <td>{index}</td>
+              <td>{index + 1}</td>
               <td>{music.title}</td>
 
               <td>
@@ -48,13 +41,7 @@ export default function PlayList(props: Props) {
                     </a>
                   </span>
                   <span>
-                    <a
-                      href="#"
-                      className="pe-auto text-secondary "
-                      onClick={(e) => {
-                        onAddMusicToPlayList(music);
-                      }}
-                    >
+                    <a>
                       <FaRegCirclePlay
                         onClick={() => {
                           PubSub.publish("playMusic", music);

@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { FaMusic } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import PubSub from "pubsub-js";
-import musicServices from "../../../apis/services/music.services";
-import { musicDataBase } from "../../../types/types";
-import PlayList from "../PlayList/PlayList.music";
+import "./search.css";
+import apple from "../Search/apple.jpg";
 type Props = {
   onSearch: (result: any) => void;
 };
@@ -19,35 +16,6 @@ export default function SearchMusic(props: Props) {
     if (e.key === "Enter") {
       const result = e.currentTarget.value.trim();
       onSearch(result);
-      // if (result) {
-      //   try {
-      //     PubSub.publish("musicList", {
-      //       isFirst: false,
-      //       isLoading: true,
-      //       isError: false,
-      //       playList: [],
-      //     });
-      //     const response = await musicServices.getSong(result);
-      //     // If the response status is correct, send the response to the AddplayList
-      //     if (response?.status === 200) {
-      //       // addToPlayList(response.data);
-      //       PubSub.publish("musicList", {
-      //         isFirst: false,
-      //         isLoading: false,
-      //         isError: false,
-      //         playList: response.data,
-      //       });
-      //     }
-      //   } catch (error) {
-      //     PubSub.publish("musicList", {
-      //       isFirst: false,
-      //       isLoading: false,
-      //       isError: true,
-      //       playList: [],
-      //     });
-      //   }
-      // }
-      // setUserSearch("");
     }
   };
 
@@ -57,45 +25,28 @@ export default function SearchMusic(props: Props) {
     navigate("/");
   };
 
-  // // Add search music to playList
-  // const [newMusic, setNewMusic] = useState<musicDataBase[]>([]);
-
-  // const handleAdd = (music: musicDataBase) => {
-  //   const musicExist = newMusic.some((songs) => songs.id === music.id);
-  //   if (!musicExist) {
-  //     setNewMusic([...newMusic, music]);
-  //     // Add the music to session storage
-  //     const updatedPlaylist = JSON.stringify([...newMusic, music]);
-  //     sessionStorage.setItem("playlist", updatedPlaylist);
-  //   }
-  // };
   return (
-    <div>
-      <nav className="navbar bg-body-tertiary">
-        <div className="container-fluid d-flex justify-content-around align-items-center">
-          <a className="navbar-brand">
-            <FaMusic />
-          </a>
-
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              value={userSearch}
-              onKeyUp={handleInput}
-              onChange={(e) => setUserSearch(e.target.value)}
-            />
-          </div>
-
-          <button
-            className="btn btn-outline-success"
-            type="submit"
-            onClick={handleLogOut}
-          >
-            Logout
-          </button>
+    <nav className="navbar ">
+      <div className="container-fluid d-flex justify-content-around align-items-center ">
+        <img className="mb-4" src={apple} alt="" width="130" height="120" />
+        <div className="form-group ">
+          <input
+            type="text"
+            className="form-control"
+            value={userSearch}
+            onKeyUp={handleInput}
+            onChange={(e) => setUserSearch(e.target.value)}
+          />
         </div>
-      </nav>
-    </div>
+
+        <button
+          className="btn btn-outline-success"
+          type="submit"
+          onClick={handleLogOut}
+        >
+          Logout
+        </button>
+      </div>
+    </nav>
   );
 }

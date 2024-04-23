@@ -1,10 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import "./login.css";
-// import { LogInUser, UserDetails } from "../../types/types";
+import { useNavigate } from "react-router-dom";
+
 import { LogInUser, UserDetails } from "../../types/types";
 import musicServices from "../../apis/services/music.services";
 import logo from "../../Images/music.jpg";
-import { useNavigate } from "react-router-dom";
+import "./login.css";
 
 export default function Login() {
   const [users, setUsers] = useState<LogInUser>({
@@ -28,22 +28,19 @@ export default function Login() {
       // Add the token to session storage
       const token = response.data.accessToken;
       sessionStorage.setItem("token", token);
-      // console.log(token);
 
       if (response.status === 200) {
         const dataBaseUser: UserDetails = response.data;
 
         const sessionToken = sessionStorage.getItem("token");
-        if (dataBaseUser.accessToken == sessionToken) {
-          // Redirect user to main page
+        if (dataBaseUser.accessToken === sessionToken) {
+          // Send the user name to main page
+          // PubSub.publish("userName", dataBaseUser.username);
 
           navigate("/user");
         }
-      } else {
-        setLogInStatus("Username or Password is Incorrect");
       }
     } catch (error) {
-      console.error("Error occurred during login:", error);
       setLogInStatus("Username or password is Invalid");
     }
     setUsers({ username: "", password: "" });
