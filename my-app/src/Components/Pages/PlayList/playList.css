@@ -1,0 +1,7 @@
+.playCard{
+    padding: 5px;
+    -webkit-box-shadow: 10px 10px 264px -27px rgba(0,0,0,0.83);
+-moz-box-shadow: 10px 10px 264px -27px rgba(0,0,0,0.83);
+box-shadow: 10px 10px 264px -27px rgba(0,0,0,0.83);
+    
+}
