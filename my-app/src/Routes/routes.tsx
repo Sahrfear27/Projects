@@ -12,7 +12,7 @@ export default [
     element: <Login />,
   },
   {
-    path: "/",
+    path: "*",
     element: <Navigate to="/login" />,
   },
 ];

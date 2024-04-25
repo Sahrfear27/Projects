@@ -23,6 +23,7 @@ export default function SearchMusic(props: Props) {
   const handleLogOut = () => {
     // sessionStorage.removeItem("token");
     navigate("/");
+    return;
   };
 
   return (

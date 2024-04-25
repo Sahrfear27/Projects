@@ -49,17 +49,21 @@ export default function MainPage() {
   };
 
   // GetUserPlayList
+  // const newtoken = sessionStorage.getItem("token") as string;
   useEffect(() => {
     async function fetchUserPlayList() {
       try {
+        // const response = await musicServices.getPlaylist(newtoken);
         const response = await musicServices.getPlaylist(token);
         setNewPlayList(response.data);
       } catch (error) {
+        console.log("Hello");
         throw Error("Error fetching user playlist:");
       }
     }
     fetchUserPlayList();
   }, [token]);
+
   // Add the music
   const handleAdd = async (music: musicDataBase) => {
     const existingId = newPlayList.some((item) => item.id === music.id);

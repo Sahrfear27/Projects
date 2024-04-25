@@ -36,7 +36,6 @@ export default function Login() {
         if (dataBaseUser.accessToken === sessionToken) {
           // Send the user name to main page
           // PubSub.publish("userName", dataBaseUser.username);
-
           navigate("/user");
         }
       }
