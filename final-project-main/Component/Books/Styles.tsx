@@ -1,0 +1,126 @@
+import { Platform, StyleSheet } from "react-native";
+
+const bookListStyle = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+    paddingTop: Platform.OS === "android" ? 30 : 0,
+    paddingBottom: 200,
+  },
+  row: {
+    flexDirection: "row",
+    padding: 20,
+    borderBottomWidth: 1,
+    borderColor: "#ddd",
+    justifyContent: "space-between",
+  },
+  button: {
+    borderRadius: 14,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    marginVertical: 5,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
+  },
+  editButton: {
+    backgroundColor: "#15803d",
+  },
+  detailButton: {
+    backgroundColor: "#007acc",
+  },
+  deleteButton: {
+    backgroundColor: "#dc2626",
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 15,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+  headerText: {
+    fontSize: 25,
+    color: "#444",
+    textAlign: "center",
+    margin: 20,
+  },
+  img: {
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+  },
+  input: {
+    padding: 10,
+    paddingHorizontal: 20,
+    fontSize: 20,
+    color: "#444",
+    borderBottomWidth: 1,
+    borderColor: "#ddd",
+    width: 320,
+  },
+  details: {
+    flexDirection: "column",
+    flex: 8,
+  },
+  imgBackground: {
+    justifyContent: "center",
+    height: 180,
+  },
+  addAuthor: {
+    borderWidth: 1,
+    borderColor: "#ecfeff",
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+    backgroundColor: "#006DA4",
+    marginTop: 20,
+  },
+  addButton: {
+    borderWidth: 1,
+    borderColor: "#a8a29e",
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+    backgroundColor: "#15803d",
+    marginTop: 20,
+  },
+  addBookHeaderStyle: {
+    borderRadius: 14,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    marginVertical: 5,
+    marginLeft: 87,
+    width: 250,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+  },
+  addBookHeader: {
+    color: "#ffff",
+    fontSize: 25,
+    textAlign: "center",
+    fontWeight: "bold",
+    backgroundColor: "#006DA4",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    padding: 5,
+    elevation: 5,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 6,
+    paddingHorizontal: 10,
+    marginHorizontal: 15,
+    marginTop: 15,
+  },
+  searchIcon: {
+    marginRight: 10,
+  },
+});
+
+export default bookListStyle;

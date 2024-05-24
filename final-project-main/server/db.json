@@ -1,0 +1,425 @@
+{
+  "books": [
+    {
+      "id": "B001",
+      "title": "Understanding",
+      "genre": "Education",
+      "category": "Computer Sciences",
+      "authorIDs": [
+        "A001"
+      ],
+      "publisherId": "4fa6"
+    },
+    {
+      "id": "B002",
+      "title": "The Art of Programming",
+      "genre": "Technology",
+      "category": "Programming",
+      "authorIDs": [
+        "A003",
+        "b6a8"
+      ],
+      "publisherId": "P002"
+    },
+    {
+      "id": "40d2",
+      "title": "Vocabalary",
+      "genre": "Learning New Words",
+      "category": "Dictionary",
+      "authorIDs": [
+        "A002"
+      ],
+      "publisherId": "df0e"
+    },
+    {
+      "id": "869f",
+      "title": "Web Application Programming",
+      "genre": "Mobile Application",
+      "category": "Programming",
+      "authorIDs": [
+        "A003"
+      ],
+      "publisherId": "P002"
+    },
+    {
+      "id": "d8ea",
+      "title": "Server Side Programming",
+      "genre": "Full-Stack",
+      "category": "Programming",
+      "authorIDs": [
+        "A002",
+        "A001"
+      ],
+      "publisherId": "993f"
+    },
+    {
+      "id": "0e4f",
+      "title": "Event Loop",
+      "genre": "Asynchronous Programming",
+      "category": "Programming",
+      "authorIDs": [
+        "8f49"
+      ],
+      "publisherId": "P001"
+    },
+    {
+      "id": "8d2e",
+      "title": "Sjsjsjsjs",
+      "genre": "Jdjdjd",
+      "category": "Denjddjd",
+      "authorIDs": [
+        "c7be",
+        "c7be",
+        "A003",
+        "A002"
+      ],
+      "publisherId": "c6a3"
+    }
+  ],
+  "authors": [
+    {
+      "id": "A001",
+      "name": "John Doe",
+      "phone": "123-456-7890",
+      "email": "john.doe@example.com"
+    },
+    {
+      "id": "A002",
+      "name": "Jane Smith",
+      "phone": "234-567-8901",
+      "email": "jane.smith@example.com"
+    },
+    {
+      "id": "A003",
+      "name": "Emily Johnson",
+      "phone": "345-678-9012",
+      "email": "emily.johnson@example.com"
+    },
+    {
+      "id": "b6a8",
+      "name": "Sahrfear  Macarthy",
+      "email": "sahr@miu.edu",
+      "phone": "669-988-0989"
+    },
+    {
+      "id": "8f49",
+      "name": "John Smith",
+      "email": "john@email.com",
+      "phone": "897-901-8877"
+    },
+    {
+      "id": "c7be",
+      "name": "Mary Jane",
+      "email": "mary@miu.edu",
+      "phone": "392-091-1122"
+    }
+  ],
+  "publishers": [
+    {
+      "id": "P001",
+      "name": "TechBooks Publishing",
+      "phone": "456-789-0123",
+      "email": "contact@techbookspub.com",
+      "address": "123 Tech St, Silicon Valley, CA"
+    },
+    {
+      "id": "P002",
+      "name": "CodeWorld Publishers",
+      "phone": "567-890-1234",
+      "email": "info@codeworldpub.com",
+      "address": "234 Code Ave, Programmer City, TX"
+    },
+    {
+      "id": "4fa6",
+      "name": "Book Publishing",
+      "email": "Books@gmail.com",
+      "phone": "408-911-9087",
+      "address": "4098 San Ramon Way"
+    },
+    {
+      "id": "c6a3",
+      "name": "ABC Publishing",
+      "email": "abc@yahoo.com",
+      "phone": "872-922-9087",
+      "address": "4278 Jackson Ave FA"
+    },
+    {
+      "id": "56d5",
+      "name": "Free Press",
+      "email": "press@gmail.com",
+      "phone": "392-901-7733",
+      "address": "4320-San Thomas Ex Way CA"
+    },
+    {
+      "id": "993f",
+      "name": "Gary wolf Press",
+      "email": "wolf@miu.yahoo",
+      "phone": "121-901-1242",
+      "address": "3425 San Ramon Way San Jose CA"
+    },
+    {
+      "id": "df0e",
+      "name": "Macmillan",
+      "email": "mac@gmail.com",
+      "phone": "291-901-4533",
+      "address": "6732 FairField IA USA"
+    }
+  ],
+  "catalogs": [
+    {
+      "id": "C001",
+      "bookId": "B001",
+      "numberOfCopies": 10,
+      "availableCopies": 9
+    },
+    {
+      "id": "C002",
+      "bookId": "B002",
+      "numberOfCopies": 5,
+      "availableCopies": 0
+    },
+    {
+      "id": "C003",
+      "bookId": "40d2",
+      "numberOfCopies": 15,
+      "availableCopies": 0
+    },
+    {
+      "id": "C004",
+      "bookId": "869f",
+      "numberOfCopies": 8,
+      "availableCopies": 8
+    },
+    {
+      "id": "C005",
+      "bookId": "d8ea",
+      "numberOfCopies": 15,
+      "availableCopies": 0
+    }
+  ],
+  "members": [
+    {
+      "id": "M001",
+      "residentID": "S1002",
+      "firstname": "Alice",
+      "lastname": "Green",
+      "address": "789 Library Ln, Educ Town",
+      "phone": "678-901-2345",
+      "email": "alice.green@example.com"
+    },
+    {
+      "id": "97f6",
+      "firstname": "Sahrfear",
+      "lastname": "Macarthy",
+      "email": "sahr@miu.edu",
+      "phone": "901-221-1232",
+      "residentID": "S6288",
+      "address": "4923 San Ramon Way"
+    },
+    {
+      "id": "c2a7",
+      "firstname": "Alex",
+      "lastname": "Macarthy",
+      "email": "alex@yahoo.com",
+      "phone": "902-982-1232",
+      "residentID": "S5399",
+      "address": "4134-San Thomas EP Way"
+    },
+    {
+      "id": "461e",
+      "firstname": "Sarah",
+      "lastname": "Smith",
+      "email": "sarah@miu.edu",
+      "phone": "982-090-1122",
+      "residentID": "S4332",
+      "address": "1342 FairField IA"
+    },
+    {
+      "id": "dc44",
+      "firstname": "Ibrahim",
+      "lastname": "Kamara",
+      "email": "ib@yahoo.com",
+      "phone": "892-122-9922",
+      "residentID": "S5229",
+      "address": "2424 Samuel Lane CA"
+    },
+    {
+      "id": "e11a",
+      "firstname": "Sia",
+      "lastname": "Tia",
+      "email": "sia@gmail.com",
+      "phone": "321-009-8899",
+      "residentID": "S2343",
+      "address": "4098 San Ramon San Jose"
+    },
+    {
+      "id": "38cb",
+      "firstname": "Yai",
+      "lastname": "Boima",
+      "email": "yai@gmail.com",
+      "phone": "923-392-0099",
+      "residentID": "S4322",
+      "address": "7372 Adonkia Freetown"
+    },
+    {
+      "id": "a91f",
+      "firstname": "Sahr",
+      "lastname": "Alves",
+      "email": "alves@gmail.com",
+      "phone": "181-008-9099",
+      "residentID": "S3677",
+      "address": "4422 Mary Lane CA"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "ba20",
+      "memberId": "97f6",
+      "bookId": "40d2",
+      "borrowedDate": "Mon May 20 2024 11:20:22 GMT-0500",
+      "returnedDate": "Mon May 20 2024 13:12:51 GMT-0500"
+    },
+    {
+      "id": "2bf9",
+      "memberId": "461e",
+      "bookId": "40d2",
+      "borrowedDate": "Mon May 20 2024 11:20:59 GMT-0500",
+      "returnedDate": "Mon May 20 2024 12:58:57 GMT-0500"
+    },
+    {
+      "id": "f9bf",
+      "memberId": "dc44",
+      "bookId": "869f",
+      "borrowedDate": "Mon May 20 2024 13:09:33 GMT-0500",
+      "returnedDate": "Mon May 20 2024 13:12:01 GMT-0500"
+    },
+    {
+      "id": "fdbb",
+      "memberId": "c2a7",
+      "bookId": "40d2",
+      "borrowedDate": "Mon May 20 2024 13:16:49 GMT-0500",
+      "returnedDate": "Mon May 20 2024 13:20:52 GMT-0500"
+    },
+    {
+      "id": "bb5f",
+      "memberId": "97f6",
+      "bookId": "B001",
+      "borrowedDate": "Mon May 20 2024 13:26:16 GMT-0500",
+      "returnedDate": "Mon May 20 2024 13:27:10 GMT-0500"
+    },
+    {
+      "id": "71c7",
+      "memberId": "M001",
+      "bookId": "d8ea",
+      "borrowedDate": "Mon May 20 2024 13:49:07 GMT-0500",
+      "returnedDate": "Mon May 20 2024 13:53:21 GMT-0500"
+    },
+    {
+      "id": "db97",
+      "memberId": "M001",
+      "bookId": "d8ea",
+      "borrowedDate": "Mon May 20 2024 13:55:19 GMT-0500",
+      "returnedDate": "Mon May 20 2024 14:04:29 GMT-0500"
+    },
+    {
+      "id": "dd9e",
+      "memberId": "97f6",
+      "bookId": "d8ea",
+      "borrowedDate": "Mon May 20 2024 14:01:14 GMT-0500",
+      "returnedDate": "Mon May 20 2024 14:06:24 GMT-0500"
+    },
+    {
+      "id": "1edf",
+      "memberId": "c2a7",
+      "bookId": "d8ea",
+      "borrowedDate": "Mon May 20 2024 14:01:35 GMT-0500",
+      "returnedDate": "Mon May 20 2024 14:07:14 GMT-0500"
+    },
+    {
+      "id": "8d69",
+      "memberId": "undefined",
+      "bookId": "869f",
+      "borrowedDate": "Mon May 20 2024 15:47:14 GMT-0500",
+      "returnedDate": "Mon May 20 2024 15:50:16 GMT-0500"
+    },
+    {
+      "id": "9afd",
+      "memberId": "e11a",
+      "bookId": "869f",
+      "borrowedDate": "Mon May 20 2024 15:49:48 GMT-0500",
+      "returnedDate": "Mon May 20 2024 15:51:21 GMT-0500"
+    },
+    {
+      "id": "4b4e",
+      "memberId": "38cb",
+      "bookId": "869f",
+      "borrowedDate": "Mon May 20 2024 19:27:08 GMT-0500",
+      "returnedDate": "Mon May 20 2024 19:28:45 GMT-0500"
+    },
+    {
+      "id": "ce38",
+      "memberId": "e11a",
+      "bookId": "869f",
+      "borrowedDate": "Mon May 20 2024 19:27:18 GMT-0500",
+      "returnedDate": "Mon May 20 2024 19:28:55 GMT-0500"
+    },
+    {
+      "id": "cc59",
+      "memberId": "a91f",
+      "bookId": "869f",
+      "borrowedDate": "Tue May 21 2024 09:04:21 GMT-0500",
+      "returnedDate": "Tue May 21 2024 09:04:53 GMT-0500"
+    },
+    {
+      "id": "eecf",
+      "memberId": "97f6",
+      "bookId": "40d2",
+      "borrowedDate": "Thu May 23 2024 08:14:38 GMT-0500",
+      "returnedDate": null
+    },
+    {
+      "id": "45c7",
+      "memberId": "38cb",
+      "bookId": "B002",
+      "borrowedDate": "Thu May 23 2024 08:14:54 GMT-0500",
+      "returnedDate": null
+    }
+  ],
+  "users": [
+    {
+      "id": "U001",
+      "name": "Peter",
+      "email": "peter@miu.edu"
+    },
+    {
+      "id": "ac3e",
+      "name": "Sahrfear",
+      "email": "sahr@miu.edu"
+    },
+    {
+      "id": "c286",
+      "name": "Mary",
+      "email": "mary@miu.edu"
+    },
+    {
+      "id": "5841",
+      "name": "Kumba",
+      "email": "kumba@miu.edu"
+    },
+    {
+      "id": "bbbc",
+      "name": "Erick",
+      "email": "erick@miu.edu"
+    },
+    {
+      "id": "e530",
+      "name": "Abu",
+      "email": "abu@miu.edu"
+    },
+    {
+      "id": "d6da",
+      "name": "John",
+      "email": "john@gmail"
+    }
+  ]
+}
