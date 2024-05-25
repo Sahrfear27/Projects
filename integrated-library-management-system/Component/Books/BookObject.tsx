@@ -193,10 +193,14 @@ export default function BookObject(props: Props) {
           }}
         >
           <TouchableOpacity onPress={goToEdit}>
-            <MaterialCommunityIcons name="pencil" size={30} color="#16a34a" />
+            <MaterialCommunityIcons
+              name="file-edit"
+              size={26}
+              color="#047857"
+            />
           </TouchableOpacity>
           <TouchableOpacity onPress={deleteBook}>
-            <MaterialCommunityIcons name="delete" size={30} color="#a8a29e" />
+            <MaterialCommunityIcons name="delete" size={26} color="#881337" />
           </TouchableOpacity>
         </View>
       </View>

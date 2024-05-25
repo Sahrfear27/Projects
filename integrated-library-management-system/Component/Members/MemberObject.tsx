@@ -1,7 +1,7 @@
 import { Alert, Text, TouchableOpacity, View } from "react-native";
 import libraryServices from "../../Apis/Services/library.services";
 import { useNavigation } from "@react-navigation/native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { MemberType } from "../../Types/types";
 import GlobalContex from "../../Helpers/Contex/Contex";
 import React, { useContext } from "react";
@@ -117,13 +117,19 @@ export default function MemberObjects({ data, index }: Props) {
             ID: {data.residentID}
           </Text>
         </View>
-        <View>
+        <View
+          style={{ flexDirection: "column", justifyContent: "space-evenly" }}
+        >
           <TouchableOpacity onPress={goToEdit}>
-            <MaterialIcons name="edit" size={26} color="#0e7490" />
+            <MaterialCommunityIcons
+              name="file-edit"
+              size={26}
+              color="#047857"
+            />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={handleDelete}>
-            <MaterialIcons name="delete" size={26} color="#a3a3a3" />
+            <MaterialCommunityIcons name="delete" size={26} color="#e11d48" />
           </TouchableOpacity>
         </View>
       </View>

@@ -5,6 +5,7 @@ import { PublisherType } from "../../Types/types";
 import GlobalContex from "../../Helpers/Contex/Contex";
 import React, { useContext } from "react";
 import publisherStyle from "./Styles";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 type Props = {
   data: PublisherType;
@@ -107,19 +108,19 @@ export default function PublisherObject({ data, index }: Props) {
           </Text>
         </View>
 
-        <View>
-          <TouchableOpacity
-            style={[publisherStyle.button, publisherStyle.editButton]}
-            onPress={goToEdit}
-          >
-            <Text style={publisherStyle.buttonText}>Edit</Text>
+        <View
+          style={{ flexDirection: "column", justifyContent: "space-evenly" }}
+        >
+          <TouchableOpacity onPress={goToEdit}>
+            <MaterialCommunityIcons
+              name="file-edit"
+              size={26}
+              color="#047857"
+            />
           </TouchableOpacity>
 
-          <TouchableOpacity
-            style={[publisherStyle.button, publisherStyle.deleteButton]}
-            onPress={handleDelete}
-          >
-            <Text style={publisherStyle.buttonText}>Delete</Text>
+          <TouchableOpacity onPress={handleDelete}>
+            <MaterialCommunityIcons name="delete" size={26} color="#e11d48" />
           </TouchableOpacity>
         </View>
       </View>

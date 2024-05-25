@@ -5,6 +5,7 @@ import GlobalContex from "../../Helpers/Contex/Contex";
 import { AuthorType } from "../../Types/types";
 import React, { useContext } from "react";
 import authorStyle from "./Styles";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 type Props = {
   data: AuthorType;
@@ -95,19 +96,19 @@ export default function AuthorObjects({ data, index }: Props) {
           </Text>
         </View>
 
-        <View>
-          <TouchableOpacity
-            style={[authorStyle.button, authorStyle.editButton]}
-            onPress={goToEdit}
-          >
-            <Text style={authorStyle.buttonText}>Edit</Text>
+        <View
+          style={{ flexDirection: "column", justifyContent: "space-evenly" }}
+        >
+          <TouchableOpacity onPress={goToEdit}>
+            <MaterialCommunityIcons
+              name="file-edit"
+              size={26}
+              color="#047857"
+            />
           </TouchableOpacity>
 
-          <TouchableOpacity
-            style={[authorStyle.button, authorStyle.deleteButton]}
-            onPress={handleDelete}
-          >
-            <Text style={authorStyle.buttonText}>Delete</Text>
+          <TouchableOpacity onPress={handleDelete}>
+            <MaterialCommunityIcons name="delete" size={26} color="#e11d48" />
           </TouchableOpacity>
         </View>
       </View>

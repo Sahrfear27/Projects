@@ -184,31 +184,31 @@
       "id": "C001",
       "bookId": "B001",
       "numberOfCopies": 10,
-      "availableCopies": 2
+      "availableCopies": 0
     },
     {
       "id": "C002",
       "bookId": "B002",
       "numberOfCopies": 5,
-      "availableCopies": 3
+      "availableCopies": 2
     },
     {
       "id": "C003",
       "bookId": "40d2",
       "numberOfCopies": 15,
-      "availableCopies": 2
+      "availableCopies": 4
     },
     {
       "id": "C004",
       "bookId": "869f",
       "numberOfCopies": 8,
-      "availableCopies": 4
+      "availableCopies": 3
     },
     {
       "id": "C005",
       "bookId": "d8ea",
       "numberOfCopies": 15,
-      "availableCopies": 3
+      "availableCopies": 2
     }
   ],
   "members": [
@@ -315,52 +315,59 @@
       "returnedDate": "Sat May 25 2024 10:05:51 GMT-0500"
     },
     {
-      "id": "eb59",
-      "memberId": "97f6",
-      "bookId": "B001",
-      "borrowedDate": "Sat May 25 2024 10:05:11 GMT-0500",
-      "returnedDate": "Sat May 25 2024 10:05:59 GMT-0500"
-    },
-    {
-      "id": "8e28",
-      "memberId": "c2a7",
-      "bookId": "B001",
-      "borrowedDate": "Sat May 25 2024 10:05:20 GMT-0500",
-      "returnedDate": "Sat May 25 2024 10:06:05 GMT-0500"
-    },
-    {
-      "id": "b076",
+      "id": "3a5e",
       "memberId": "M001",
       "bookId": "B001",
-      "borrowedDate": "Sat May 25 2024 10:13:57 GMT-0500",
-      "returnedDate": null
+      "borrowedDate": "Sat May 25 2024 12:06:34 GMT-0500",
+      "returnedDate": "Sat May 25 2024 12:07:52 GMT-0500"
     },
     {
-      "id": "7191",
+      "id": "53b5",
       "memberId": "97f6",
       "bookId": "B001",
-      "borrowedDate": "Sat May 25 2024 10:14:02 GMT-0500",
-      "returnedDate": null
+      "borrowedDate": "Sat May 25 2024 12:06:44 GMT-0500",
+      "returnedDate": "Sat May 25 2024 12:07:59 GMT-0500"
     },
     {
-      "id": "524d",
+      "id": "f1fb",
       "memberId": "c2a7",
       "bookId": "B001",
-      "borrowedDate": "Sat May 25 2024 10:14:07 GMT-0500",
-      "returnedDate": null
+      "borrowedDate": "Sat May 25 2024 12:06:51 GMT-0500",
+      "returnedDate": "Sat May 25 2024 12:08:04 GMT-0500"
     },
     {
-      "id": "439b",
-      "memberId": "dc44",
+      "id": "66a0",
+      "memberId": "461e",
       "bookId": "B002",
-      "borrowedDate": "2024-05-25T15:15:15.248Z",
+      "borrowedDate": "Sat May 25 2024 12:08:22 GMT-0500",
+      "returnedDate": "Sat May 25 2024 12:09:39 GMT-0500"
+    },
+    {
+      "id": "5287",
+      "memberId": "c2a7",
+      "bookId": "d8ea",
+      "borrowedDate": "Sat May 25 2024 12:11:42 GMT-0500",
       "returnedDate": null
     },
     {
-      "id": "2f8c",
+      "id": "7f5c",
+      "memberId": "e11a",
+      "bookId": "869f",
+      "borrowedDate": "Sat May 25 2024 12:21:19 GMT-0500",
+      "returnedDate": null
+    },
+    {
+      "id": "573f",
+      "memberId": "M001",
+      "bookId": "B002",
+      "borrowedDate": "Sat May 25 2024 12:35:12 GMT-0500",
+      "returnedDate": null
+    },
+    {
+      "id": "05b2",
       "memberId": "38cb",
-      "bookId": "40d2",
-      "borrowedDate": "Sat May 25 2024 10:21:20 GMT-0500",
+      "bookId": "B001",
+      "borrowedDate": "Sat May 25 2024 12:49:03 GMT-0500",
       "returnedDate": null
     }
   ],

@@ -79,12 +79,11 @@ export default function BorrowBook({ route }: Props) {
             ...(state.transactions || []),
             newTransaction,
           ];
-          console.log(`State Before Dispatch`, state.transactions);
+
           dispatch({
-            type: "transaction",
+            type: "transactions",
             payload: { transactions: updatedTransactions },
           });
-          console.log(`State After Dispatch`, state.transactions);
           Alert.alert("Borrow Successful");
           navigation.goBack();
         } else {

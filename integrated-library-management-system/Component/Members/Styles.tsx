@@ -26,10 +26,12 @@ const memberStyle = StyleSheet.create({
     elevation: 5,
   },
   editButton: {
-    backgroundColor: "#15803d",
+    // backgroundColor: "#15803d",
+    backgroundColor: "#0891b2",
   },
   deleteButton: {
-    backgroundColor: "#dc2626",
+    // backgroundColor: "#dc2626",
+    backgroundColor: "#0369a1",
   },
   buttonText: {
     color: "#fff",
