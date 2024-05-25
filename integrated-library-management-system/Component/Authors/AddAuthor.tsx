@@ -3,11 +3,12 @@ import { TouchableHighlight } from "react-native-gesture-handler";
 import { Alert, Text, TextInput, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useState } from "react";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import authorStyle from "./Styles";
 
 export default function AddAuthor() {
-  const { authors, setAuthor } = useContext(GlobalContex);
+  // const { authors, setAuthor } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -23,7 +24,11 @@ export default function AddAuthor() {
         };
         const response = await libraryServices.addAuthor(newAuthor);
         if (response.status == 201) {
-          setAuthor([...authors, newAuthor]);
+          // setAuthor([...authors, newAuthor]);
+          dispatch({
+            type: "add-author",
+            payload: { authors: [response.data] },
+          });
           Alert.alert("Added Successfully");
           setName("");
           setEmail("");
@@ -62,3 +67,8 @@ export default function AddAuthor() {
     </View>
   );
 }
+
+// ...state,
+// authors: [
+//   ...(state.authors??[]),
+//   ...(payload.authors ?? []),

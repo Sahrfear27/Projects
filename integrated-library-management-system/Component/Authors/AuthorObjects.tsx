@@ -1,7 +1,7 @@
 import { Alert, Text, View, TouchableOpacity } from "react-native";
 import libraryServices from "../../Apis/Services/library.services";
 import { useNavigation } from "@react-navigation/native";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import { AuthorType } from "../../Types/types";
 import React, { useContext } from "react";
 import authorStyle from "./Styles";
@@ -12,7 +12,8 @@ type Props = {
 };
 
 export default function AuthorObjects({ data, index }: Props) {
-  const { authors, setAuthor } = useContext(GlobalContex);
+  // const { authors, setAuthor } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const navigation = useNavigation<any>();
 
   const goToEdit = () => {
@@ -23,10 +24,11 @@ export default function AuthorObjects({ data, index }: Props) {
     try {
       const response = await libraryServices.deleteAuthor(data.id!);
       if (response.status === 200) {
-        const updatedAuthors = authors.filter(
+        const updatedAuthors = state.authors!.filter(
           (author) => author.id !== data.id
         );
-        setAuthor(updatedAuthors);
+        // setAuthor(updatedAuthors);
+        dispatch({ type: "authors", payload: { authors: updatedAuthors } });
       }
     } catch (error) {
       Alert.alert("Fail to delete");

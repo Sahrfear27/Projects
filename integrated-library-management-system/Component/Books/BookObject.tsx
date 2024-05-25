@@ -2,7 +2,7 @@ import { Alert, Text, TouchableOpacity, View } from "react-native";
 import libraryServices from "../../Apis/Services/library.services";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import { BookType } from "../../Types/types";
 import React, { useContext } from "react";
 import bookListStyle from "./Styles";
@@ -13,7 +13,8 @@ type Props = {
 };
 
 export default function BookObject(props: Props) {
-  const { state, setState, authors, publishers } = useContext(GlobalContex);
+  // const { state, setState, authors, publishers } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
 
   const navigation = useNavigation<any>();
   const { data, index } = props;
@@ -26,8 +27,9 @@ export default function BookObject(props: Props) {
     try {
       const response = await libraryServices.deleteBook(data.id!);
       if (response.status === 200) {
-        const newBooks = state.filter((book) => book.id !== data.id);
-        setState(newBooks);
+        const newBooks = state.books!.filter((book) => book.id !== data.id);
+        // setState(newBooks);
+        dispatch({ type: "books", payload: { books: newBooks } });
         return Alert.alert("Deleted");
       }
     } catch (error) {
@@ -56,7 +58,7 @@ export default function BookObject(props: Props) {
   const { authorIDs } = data;
   if (authorIDs) {
     for (let ids of authorIDs) {
-      let author = authors.find((author) => author.id === ids);
+      let author = state.authors?.find((author) => author.id === ids);
       if (author) {
         authorName.push(author.name);
       }
@@ -64,7 +66,7 @@ export default function BookObject(props: Props) {
   }
 
   const { publisherId } = data;
-  const selectedPublisher = publishers.find(
+  const selectedPublisher = state.publishers?.find(
     (existingPublisher) => existingPublisher.id === publisherId
   );
 

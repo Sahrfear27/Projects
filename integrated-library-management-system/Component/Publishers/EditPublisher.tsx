@@ -4,7 +4,7 @@ import { Alert, Text, TextInput, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { PublisherType } from "../../Types/types";
 import React, { useContext, useState } from "react";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import publisherStyle from "./Styles";
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 export default function EditPublisher({ route }: Props) {
   const data = route.params;
   const navigation = useNavigation<any>();
-  const { publishers, setPublisher } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const [newPublisher, setNewPublisher] = useState<PublisherType>(data);
   const handleUpdate = async () => {
     try {
@@ -22,13 +22,20 @@ export default function EditPublisher({ route }: Props) {
         newPublisher
       );
       if (response.status == 200) {
-        const publlisherIndex = publishers.findIndex(
+        const publlisherIndex = state.publishers?.findIndex(
           (publishers) => publishers.id == newPublisher.id
         );
         if (publlisherIndex !== -1) {
-          publishers[publlisherIndex] = newPublisher;
+          const updatedPublishers = state.publishers?.map(
+            (prevPublishers, index) =>
+              index === publlisherIndex ? newPublisher : prevPublishers
+          );
+          dispatch({
+            type: "publishers",
+            payload: { publishers: updatedPublishers },
+          });
         }
-        setPublisher([...publishers]);
+
         Alert.alert("Updated Successifully");
         navigation.navigate("publisherList");
       }

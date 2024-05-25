@@ -16,8 +16,7 @@
       "genre": "Technology",
       "category": "Programming",
       "authorIDs": [
-        "A003",
-        "b6a8"
+        "A003"
       ],
       "publisherId": "P002"
     },
@@ -47,8 +46,7 @@
       "genre": "Full-Stack",
       "category": "Programming",
       "authorIDs": [
-        "A002",
-        "A001"
+        "A002"
       ],
       "publisherId": "993f"
     },
@@ -58,22 +56,31 @@
       "genre": "Asynchronous Programming",
       "category": "Programming",
       "authorIDs": [
-        "8f49"
+        "8f49",
+        "A001"
       ],
-      "publisherId": "P001"
+      "publisherId": "993f"
     },
     {
       "id": "8d2e",
-      "title": "Sjsjsjsjs",
+      "title": "Science",
       "genre": "Jdjdjd",
       "category": "Denjddjd",
+      "publisherId": "56d5",
       "authorIDs": [
-        "c7be",
-        "c7be",
-        "A003",
-        "A002"
-      ],
-      "publisherId": "c6a3"
+        "A001"
+      ]
+    },
+    {
+      "id": "e3de",
+      "title": "MAKSKSKS",
+      "genre": "AKAKKAAK",
+      "category": "SKSKSKSK",
+      "publisherId": "c6a3",
+      "authorIDs": [
+        "A002",
+        "A003"
+      ]
     }
   ],
   "authors": [
@@ -163,6 +170,13 @@
       "email": "mac@gmail.com",
       "phone": "291-901-4533",
       "address": "6732 FairField IA USA"
+    },
+    {
+      "id": "623f",
+      "name": "Books Publishing",
+      "email": "books@gmail.com",
+      "phone": "292-000-111",
+      "address": "4914 San Ramon Way"
     }
   ],
   "catalogs": [
@@ -170,13 +184,13 @@
       "id": "C001",
       "bookId": "B001",
       "numberOfCopies": 10,
-      "availableCopies": 9
+      "availableCopies": 8
     },
     {
       "id": "C002",
       "bookId": "B002",
       "numberOfCopies": 5,
-      "availableCopies": 0
+      "availableCopies": 1
     },
     {
       "id": "C003",
@@ -188,7 +202,7 @@
       "id": "C004",
       "bookId": "869f",
       "numberOfCopies": 8,
-      "availableCopies": 8
+      "availableCopies": 4
     },
     {
       "id": "C005",
@@ -263,7 +277,7 @@
     },
     {
       "id": "a91f",
-      "firstname": "Sahr",
+      "firstname": "Sahr S",
       "lastname": "Alves",
       "email": "alves@gmail.com",
       "phone": "181-008-9099",
@@ -329,59 +343,24 @@
       "returnedDate": "Mon May 20 2024 14:06:24 GMT-0500"
     },
     {
-      "id": "1edf",
-      "memberId": "c2a7",
-      "bookId": "d8ea",
-      "borrowedDate": "Mon May 20 2024 14:01:35 GMT-0500",
-      "returnedDate": "Mon May 20 2024 14:07:14 GMT-0500"
-    },
-    {
-      "id": "8d69",
-      "memberId": "undefined",
-      "bookId": "869f",
-      "borrowedDate": "Mon May 20 2024 15:47:14 GMT-0500",
-      "returnedDate": "Mon May 20 2024 15:50:16 GMT-0500"
-    },
-    {
-      "id": "9afd",
-      "memberId": "e11a",
-      "bookId": "869f",
-      "borrowedDate": "Mon May 20 2024 15:49:48 GMT-0500",
-      "returnedDate": "Mon May 20 2024 15:51:21 GMT-0500"
-    },
-    {
-      "id": "4b4e",
-      "memberId": "38cb",
-      "bookId": "869f",
-      "borrowedDate": "Mon May 20 2024 19:27:08 GMT-0500",
-      "returnedDate": "Mon May 20 2024 19:28:45 GMT-0500"
-    },
-    {
-      "id": "ce38",
-      "memberId": "e11a",
-      "bookId": "869f",
-      "borrowedDate": "Mon May 20 2024 19:27:18 GMT-0500",
-      "returnedDate": "Mon May 20 2024 19:28:55 GMT-0500"
-    },
-    {
-      "id": "cc59",
-      "memberId": "a91f",
-      "bookId": "869f",
-      "borrowedDate": "Tue May 21 2024 09:04:21 GMT-0500",
-      "returnedDate": "Tue May 21 2024 09:04:53 GMT-0500"
-    },
-    {
-      "id": "eecf",
+      "id": "f319",
       "memberId": "97f6",
-      "bookId": "40d2",
-      "borrowedDate": "Thu May 23 2024 08:14:38 GMT-0500",
+      "bookId": "B002",
+      "borrowedDate": "Fri May 24 2024 19:45:18 GMT-0500",
+      "returnedDate": "Fri May 24 2024 19:45:54 GMT-0500"
+    },
+    {
+      "id": "f491",
+      "memberId": "97f6",
+      "bookId": "d8ea",
+      "borrowedDate": "2024-05-25T00:49:18.156Z",
       "returnedDate": null
     },
     {
-      "id": "45c7",
-      "memberId": "38cb",
-      "bookId": "B002",
-      "borrowedDate": "Thu May 23 2024 08:14:54 GMT-0500",
+      "id": "ef03",
+      "memberId": "c2a7",
+      "bookId": "40d2",
+      "borrowedDate": "2024-05-25T00:54:27.991Z",
       "returnedDate": null
     }
   ],

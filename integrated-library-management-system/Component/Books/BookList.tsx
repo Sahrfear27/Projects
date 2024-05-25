@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useContext, useEffect, useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import { BookType } from "../../Types/types";
 const image = require("../../Images/library.jpg");
 import BookObject from "./BookObject";
@@ -20,23 +20,25 @@ import {
 
 export default function BookList() {
   const navigation = useNavigation<any>();
-  const { state, setState, setLogIn } = useContext(GlobalContex);
-  const [displayBooks, setDisplayBook] = useState<BookType[]>(state);
+  // const { state, setState, setLogIn } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
+  const [displayBooks, setDisplayBook] = useState<BookType[]>(state.books!);
 
   const [searchValue, setSearchValue] = useState("");
   useEffect(() => {
-    setDisplayBook(state);
-  }, [state]);
+    setDisplayBook(state.books!);
+  }, [state.books]);
 
   const handleLogOut = () => {
     try {
       AsyncStorage.removeItem("email");
-      setLogIn(false);
+      // setLogIn(false);
+      dispatch({ type: "logIn", payload: { logIn: false } });
     } catch (error) {}
   };
   const handleSearch = (text: string) => {
     setSearchValue(text);
-    const searchData = state.filter((books) => {
+    const searchData = state.books!.filter((books) => {
       return books.title.toLowerCase().startsWith(text.trim().toLowerCase());
     });
     setDisplayBook(searchData);

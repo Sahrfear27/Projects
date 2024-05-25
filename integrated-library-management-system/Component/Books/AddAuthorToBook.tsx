@@ -3,79 +3,65 @@ import React, { useContext, useEffect, useState } from "react";
 import { Alert, Button, Text, View } from "react-native";
 import { AuthorType, BookType } from "../../Types/types";
 import { Picker } from "@react-native-picker/picker";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 
 import bookListStyle from "./Styles";
 
 type Props = {
   route: any;
 };
-
+/*
+1.Check if the selected author is already associated with the specific book
+2. Update the book state
+*/
 export default function AddAuthorToBook({ route }: Props) {
   const books = route.params;
-  const { authors, state, setState } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
 
   const [displayAuthor, setDisplayAuthor] = useState<AuthorType[]>([]);
   const [selectedAuthor, setSelectedAuthor] = useState<string>("");
 
   useEffect(() => {
-    setDisplayAuthor(authors);
-    if (authors.length > 0) {
-      setSelectedAuthor(authors[0].id!);
+    setDisplayAuthor(state.authors!);
+    if (state.authors!.length > 0) {
+      setSelectedAuthor(state.authors![0].id!);
     }
-  }, [authors]);
+  }, [state.authors]);
 
   const addAuthor = async () => {
     if (!selectedAuthor) {
       return Alert.alert("Please select an author");
     }
 
-    // Check if authorId already exist in the books state
-    const existingAuthorIdInBooks = state.find((entities) =>
-      entities.authorIDs?.find((ids) => ids === selectedAuthor)
+    // Check if book exist in state
+    const existingBook = state.books!.find(
+      (prevBooks) => prevBooks.id === books.id
     );
-
-    if (existingAuthorIdInBooks) {
-      // Check if the book id matches the book in state
-      const existingBook = state.find(
-        (existingBook) => existingBook.id === books.id
-      );
-
-      //Spread the selected author to the existing authorIDs in State
-      if (existingBook) {
-        const updatedBook: BookType = {
+    if (existingBook) {
+      const isAuthorInBook = existingBook.authorIDs?.includes(selectedAuthor);
+      if (!isAuthorInBook) {
+        const updatedBooks: BookType = {
           ...existingBook,
           authorIDs: [...(existingBook.authorIDs || []), selectedAuthor],
         };
-
         try {
           const response = await libraryServices.updateBook(
             existingBook.id!,
-            updatedBook
+            updatedBooks
           );
-          if (response.status === 200) {
-            // Update the state with the new book object
-            // const updatedState = state.map((book) =>
-            //   book.id === updatedBook.id ? updatedBook : book
-            // );
-            // setState(updatedState);
-            const bookIndex = state.findIndex(
-              (books) => books.id === updatedBook.id
+          if (response.status == 200) {
+            const newBook = state.books?.map((preBooks) =>
+              preBooks.id == updatedBooks.id ? updatedBooks : preBooks
             );
-            if (bookIndex !== -1) {
-              state[bookIndex] = updatedBook;
-            }
-            setState([...state]);
-            Alert.alert("Author added successfully");
-          } else {
-            Alert.alert("Failed to add author");
+            dispatch({ type: "books", payload: { books: newBook } });
+            Alert.alert("Author Added Successfully");
           }
         } catch (error) {
-          Alert.alert("Failed to add author");
+          Alert.alert("Fail to Add");
         }
+      } else {
+        Alert.alert("Author Already exist");
       }
-    } else {
-      Alert.alert("Author already");
     }
   };
 

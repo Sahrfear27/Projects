@@ -3,7 +3,7 @@ import libraryServices from "../../Apis/Services/library.services";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MemberType } from "../../Types/types";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import React, { useContext } from "react";
 import memberStyle from "./Styles";
 
@@ -12,7 +12,8 @@ type Props = {
   index: number;
 };
 export default function MemberObjects({ data, index }: Props) {
-  const { members, setMember } = useContext(GlobalContex);
+  // const { members, setMember } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const navigation = useNavigation<any>();
 
   const goToEdit = () => {
@@ -24,8 +25,11 @@ export default function MemberObjects({ data, index }: Props) {
       const response = await libraryServices.deleteMember(data.id!);
 
       if (response.status == 200) {
-        const newMembers = members.filter((members) => members.id !== data.id);
-        setMember(newMembers);
+        const newMembers = state.members!.filter(
+          (members) => members.id !== data.id
+        );
+        // setMember(newMembers);
+        dispatch({ type: "members", payload: { members: newMembers } });
         Alert.alert("Delete Successful");
       }
     } catch (error) {

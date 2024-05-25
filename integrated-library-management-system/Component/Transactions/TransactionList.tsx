@@ -1,12 +1,12 @@
 import { FlatList, ImageBackground, SafeAreaView } from "react-native";
 import TransactionObject from "./TransactionObject";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import React, { useContext } from "react";
 const image = require("../../assets/transaction.jpg");
 import transactionStyle from "./Styles";
 
 export default function TransactionList() {
-  const { transaction } = useContext(GlobalContex);
+  const { state } = useContext(GlobalContex);
 
   return (
     <SafeAreaView style={transactionStyle.container}>
@@ -16,7 +16,7 @@ export default function TransactionList() {
         style={transactionStyle.imgBackground}
       />
       <FlatList
-        data={transaction}
+        data={state.transaction}
         renderItem={({ item, index }) => (
           <TransactionObject data={item} index={index} />
         )}

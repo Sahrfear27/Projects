@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import { AuthorType } from "../../Types/types";
 import AuthorObjects from "./AuthorObjects";
 import authorStyle from "./Styles";
@@ -15,7 +15,8 @@ import {
 const image = require("../../assets/author.jpg");
 
 export default function AuthorList() {
-  const { authors } = useContext(GlobalContex);
+  // const { authors } = useContext(GlobalContex);
+  const { state } = useContext(GlobalContex);
   const navigation = useNavigation<any>();
   const goToAddAuthor = () => {
     navigation.navigate("addAuthor");
@@ -32,7 +33,7 @@ export default function AuthorList() {
         <Text style={authorStyle.buttonText}>Add New Author</Text>
       </Pressable>
       <FlatList
-        data={authors}
+        data={state.authors}
         renderItem={({ item, index }) => (
           <AuthorObjects data={item} index={index} />
         )}

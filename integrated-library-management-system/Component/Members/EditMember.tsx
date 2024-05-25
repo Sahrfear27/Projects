@@ -2,7 +2,7 @@ import { Alert, Text, TextInput, TouchableHighlight, View } from "react-native";
 import libraryServices from "../../Apis/Services/library.services";
 import React, { useContext, useState } from "react";
 import { MemberType } from "../../Types/types";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import memberStyle from "./Styles";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 };
 export default function EditMember({ route }: Props) {
   const data: MemberType = route.params;
-  const { members, setMember } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const [newMember, setNewMember] = useState(data);
 
   const handleUpdate = async () => {
@@ -20,13 +20,17 @@ export default function EditMember({ route }: Props) {
         newMember
       );
       if (response.status == 200) {
-        const memberIndex = members.findIndex(
+        const memberIndex = state.members!.findIndex(
           (member) => member.id === newMember.id
         );
         if (memberIndex !== -1) {
-          members[memberIndex] = newMember;
+          // members[memberIndex] = newMember;
+          const updatedMembers = state.members?.map((preMembers, index) =>
+            index == memberIndex ? newMember : preMembers
+          );
+          dispatch({ type: "members", payload: { members: updatedMembers } });
         }
-        setMember([...members]);
+        // setMember([...members]);
         Alert.alert("Updated Successfully");
       }
     } catch (error) {

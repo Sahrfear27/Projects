@@ -1,14 +1,15 @@
 import { FlatList, ImageBackground, SafeAreaView, Text } from "react-native";
 import { TouchableHighlight } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import PublisherObject from "./PublisherObject";
 import React, { useContext } from "react";
 const image = require("../../assets/publisher.jpg");
 import publisherStyle from "./Styles";
 
 export default function PublisherList() {
-  const { publishers } = useContext(GlobalContex);
+  // const { publishers } = useContext(GlobalContex);
+  const { state } = useContext(GlobalContex);
   const navigation = useNavigation<any>();
   const handleAdd = () => {
     navigation.navigate("New Publisher");
@@ -27,7 +28,7 @@ export default function PublisherList() {
         <Text style={publisherStyle.buttonText}>Add New Publisher</Text>
       </TouchableHighlight>
       <FlatList
-        data={publishers}
+        data={state.publishers}
         renderItem={({ item, index }) => (
           <PublisherObject data={item} index={index} />
         )}

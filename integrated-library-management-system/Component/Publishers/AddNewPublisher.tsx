@@ -3,11 +3,11 @@ import { TouchableHighlight } from "react-native-gesture-handler";
 import { Alert, Text, TextInput, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useState } from "react";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import publisherStyle from "./Styles";
 
 export default function AddNewPublisher() {
-  const { publishers, setPublisher } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const navigation = useNavigation<any>();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,7 +25,10 @@ export default function AddNewPublisher() {
         };
         const response = await libraryServices.addPublishers(newPublisher);
         if (response.status == 201) {
-          setPublisher([...publishers, newPublisher]);
+          dispatch({
+            type: "add-publisher",
+            payload: { publishers: [response.data] },
+          });
           Alert.alert("Added Successfully");
           setName("");
           setEmail("");

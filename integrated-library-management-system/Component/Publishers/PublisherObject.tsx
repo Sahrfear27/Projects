@@ -2,7 +2,7 @@ import { Alert, Text, View, TouchableOpacity } from "react-native";
 import libraryServices from "../../Apis/Services/library.services";
 import { useNavigation } from "@react-navigation/native";
 import { PublisherType } from "../../Types/types";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import React, { useContext } from "react";
 import publisherStyle from "./Styles";
 
@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function PublisherObject({ data, index }: Props) {
-  const { publishers, setPublisher } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const navigation = useNavigation<any>();
 
   const goToEdit = () => {
@@ -23,10 +23,14 @@ export default function PublisherObject({ data, index }: Props) {
     try {
       const response = await libraryServices.deletePublisher(data.id!);
       if (response.status == 200) {
-        const updatedPublisher = publishers.filter(
+        const updatedPublisher = state.publishers?.filter(
           (publisher) => publisher.id !== data.id
         );
-        setPublisher(updatedPublisher);
+        // setPublisher(updatedPublisher);
+        dispatch({
+          type: "publishers",
+          payload: { publishers: updatedPublisher },
+        });
       }
     } catch (error) {
       Alert.alert("Fail to Delete");

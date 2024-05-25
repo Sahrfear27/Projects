@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 const image = require("../../assets/members.jpg");
 import React, { useContext } from "react";
 import MemberObjects from "./MemberObject";
@@ -14,7 +14,8 @@ import {
 
 export default function MemberList() {
   const navigation = useNavigation<any>();
-  const { members, setMember } = useContext(GlobalContex);
+  // const { members, setMember } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const handleAdd = () => {
     navigation.navigate("addMember");
   };
@@ -29,7 +30,7 @@ export default function MemberList() {
         <Text style={memberStyle.buttonText}>Add Member</Text>
       </TouchableHighlight>
       <FlatList
-        data={members}
+        data={state.members}
         renderItem={({ item, index }) => (
           <MemberObjects data={item} index={index} />
         )}

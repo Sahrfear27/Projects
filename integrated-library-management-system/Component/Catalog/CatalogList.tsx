@@ -1,12 +1,12 @@
 import { FlatList, ImageBackground, SafeAreaView } from "react-native";
 const image = require("../../assets/catalog.jpg");
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import CatalogObject from "./CatalogObject";
 import React, { useContext } from "react";
 import borrowStyle from "./Styles";
 
 export default function BooksCatalog() {
-  const { catalog } = useContext(GlobalContex);
+  const { state } = useContext(GlobalContex);
 
   return (
     <SafeAreaView style={borrowStyle.container}>
@@ -16,7 +16,7 @@ export default function BooksCatalog() {
         style={borrowStyle.imgBackground}
       />
       <FlatList
-        data={catalog}
+        data={state.catalog}
         renderItem={({ item, index }) => (
           <CatalogObject data={item} index={index} />
         )}

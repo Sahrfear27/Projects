@@ -11,41 +11,30 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import MainPage from "./Component/Books/BookScreens";
 import UserLogin from "./Component/Users/Login";
 import { Alert, View } from "react-native";
-import { useEffect, useState } from "react";
-import GlobalContex from "./Contex/Contex";
+import { useEffect, useReducer } from "react";
+import GlobalContex from "./Helpers/Contex/Contex";
 import "react-native-gesture-handler";
 import styles from "./Styles/styles";
-import {
-  BookType,
-  AuthorType,
-  PublisherType,
-  MemberType,
-  CatalogType,
-  TransactionType,
-} from "./Types/types";
+
+import { INITIAL_STATE, reducer } from "./Helpers/Reducer/Reducer";
 
 const { Navigator, Screen } = createDrawerNavigator();
 
 export default function App() {
-  const [state, setState] = useState<BookType[]>([]);
-  const [authors, setAuthor] = useState<AuthorType[]>([]);
-  const [publishers, setPublisher] = useState<PublisherType[]>([]);
-  const [members, setMember] = useState<MemberType[]>([]);
-  const [catalog, setCatalog] = useState<CatalogType[]>([]);
-  const [transaction, setTransaction] = useState<TransactionType[]>([]);
-  const [logIn, setLogIn] = useState(false);
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
   // Load All books from the server
   async function loadBooks() {
     try {
       const response = await libraryServices.getAllBooks();
       if (response.status == 200) {
-        setState(response.data);
+        dispatch({ type: "books", payload: { books: response.data } });
       }
       const userEmail = await AsyncStorage.getItem("email");
       if (userEmail) {
         const obj = JSON.parse(userEmail);
-        setLogIn(obj.logIn);
+
+        dispatch({ type: "logIn", payload: { logIn: obj.logIn } });
       }
     } catch (error) {
       console.log(error);
@@ -57,7 +46,7 @@ export default function App() {
     try {
       const response = await libraryServices.getAuthors();
       if (response.status == 200) {
-        setAuthor(response.data);
+        dispatch({ type: "authors", payload: { authors: response.data } });
       }
     } catch (error) {
       console.log(error);
@@ -70,7 +59,10 @@ export default function App() {
     try {
       const response = await libraryServices.getPublishers();
       if (response.status == 200) {
-        setPublisher(response.data);
+        dispatch({
+          type: "publishers",
+          payload: { publishers: response.data },
+        });
       }
     } catch (error) {
       return Alert.alert("Fail to load data");
@@ -82,8 +74,8 @@ export default function App() {
     try {
       const response = await libraryServices.getMembers();
       if (response.status == 200) {
-        // console.log(response.data);
-        setMember(response.data);
+        // setMember(response.data);
+        dispatch({ type: "members", payload: { members: response.data } });
       }
     } catch (error) {
       Alert.alert("Fail to load data");
@@ -93,10 +85,9 @@ export default function App() {
   // Load Catalog
   async function loadCatalog() {
     try {
-      const respone = await libraryServices.getCatalog();
-      if (respone.status == 200) {
-        // console.log(respone.data);
-        setCatalog(respone.data);
+      const response = await libraryServices.getCatalog();
+      if (response.status == 200) {
+        dispatch({ type: "catalog", payload: { catalog: response.data } });
       }
     } catch (error) {
       Alert.alert("Fail to Load data");
@@ -108,7 +99,10 @@ export default function App() {
     try {
       const response = await libraryServices.getTransactions();
       if (response.status == 200) {
-        setTransaction(response.data);
+        dispatch({
+          type: "transaction",
+          payload: { transaction: response.data },
+        });
       }
     } catch (error) {
       Alert.alert("Fail to load data");
@@ -123,28 +117,18 @@ export default function App() {
     loadTransactions();
   }, []);
 
-  if (!logIn) {
-    return <UserLogin setLogIn={setLogIn} />;
+  if (!state.logIn) {
+    // return <UserLogin setLogIn={setLogIn} />;
+    return (
+      <UserLogin
+        setLogIn={(status) =>
+          dispatch({ type: "logIn", payload: { logIn: status } })
+        }
+      />
+    );
   }
   return (
-    <GlobalContex.Provider
-      value={{
-        state,
-        setState,
-        logIn,
-        setLogIn,
-        authors,
-        setAuthor,
-        publishers,
-        setPublisher,
-        members,
-        setMember,
-        catalog,
-        setCatalog,
-        transaction,
-        setTransaction,
-      }}
-    >
+    <GlobalContex.Provider value={{ state, dispatch }}>
       <View style={styles.container}>
         <NavigationContainer>
           <Navigator

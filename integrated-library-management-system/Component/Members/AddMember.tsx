@@ -2,7 +2,7 @@ import { Alert, Text, TextInput, TouchableHighlight, View } from "react-native";
 import libraryServices from "../../Apis/Services/library.services";
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useState } from "react";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import memberStyle from "./Styles";
 
 export default function AddMember() {
@@ -12,7 +12,8 @@ export default function AddMember() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [residentId, setResidentId] = useState("");
-  const { members, setMember } = useContext(GlobalContex);
+  // const { members, setMember } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const navigation = useNavigation<any>();
   const handleAdd = async () => {
     if (
@@ -35,7 +36,11 @@ export default function AddMember() {
       try {
         const response = await libraryServices.addMembers(newMember);
         if (response.status == 201) {
-          setMember([...members, newMember]);
+          // setMember([...members, newMember]);
+          dispatch({
+            type: "add-member",
+            payload: { members: [response.data] },
+          });
           setAddress("");
           setEmail("");
           setFirstName("");

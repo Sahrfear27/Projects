@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Alert, Button, Text, TouchableOpacity, View } from "react-native";
 import { AuthorType, BookType, CatalogType } from "../../Types/types";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import memberStyle from "../Members/Styles";
 import { MaterialIcons } from "@expo/vector-icons";
 import bookListStyle from "../Books/Styles";
@@ -19,7 +19,7 @@ export default function CatalogObject({ data, index }: Props) {
   const navigation = useNavigation<any>();
   // Get book id from catalog and find book object
   const { bookId } = data;
-  const bookName = state.find((books) => books.id == bookId);
+  const bookName = state.books?.find((books) => books.id == bookId);
 
   const goToBorrow = () => {
     navigation.navigate("Borrow", data);

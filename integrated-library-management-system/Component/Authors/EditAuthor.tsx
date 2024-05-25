@@ -4,14 +4,15 @@ import { Alert, Text, TextInput, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useState } from "react";
 import { AuthorType } from "../../Types/types";
-import GlobalContex from "../../Contex/Contex";
+import GlobalContex from "../../Helpers/Contex/Contex";
 import authorStyle from "./Styles";
 
 type Props = {
   route: any;
 };
 export default function EditAuthor({ route }: Props) {
-  const { authors, setAuthor } = useContext(GlobalContex);
+  // const { authors, setAuthor } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const navigation = useNavigation<any>();
   const data = route.params;
   const [inputValue, setInputValue] = useState<AuthorType>(data);
@@ -23,12 +24,18 @@ export default function EditAuthor({ route }: Props) {
         inputValue
       );
       if (response.status == 200) {
-        const authorIndex = authors.findIndex(
+        const authorIndex = state.authors?.findIndex(
           (author) => author.id === inputValue.id
         );
-        authors[authorIndex] = inputValue;
+        // authors[authorIndex] = inputValue;
+        if (authorIndex !== -1 && authorIndex !== undefined) {
+          const updatedAuthors = state.authors?.map((prevAuthors, index) =>
+            index === authorIndex ? inputValue : prevAuthors
+          );
+          dispatch({ type: "authors", payload: { authors: updatedAuthors } });
+        }
       }
-      setAuthor([...authors]);
+      // setAuthor([...authors]);
       Alert.alert("Update successful");
       navigation.navigate("authorList");
     } catch (error) {
