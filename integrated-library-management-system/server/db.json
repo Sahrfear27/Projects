@@ -184,19 +184,19 @@
       "id": "C001",
       "bookId": "B001",
       "numberOfCopies": 10,
-      "availableCopies": 8
+      "availableCopies": 3
     },
     {
       "id": "C002",
       "bookId": "B002",
       "numberOfCopies": 5,
-      "availableCopies": 1
+      "availableCopies": 2
     },
     {
       "id": "C003",
       "bookId": "40d2",
       "numberOfCopies": 15,
-      "availableCopies": 0
+      "availableCopies": 3
     },
     {
       "id": "C004",
@@ -208,7 +208,7 @@
       "id": "C005",
       "bookId": "d8ea",
       "numberOfCopies": 15,
-      "availableCopies": 0
+      "availableCopies": 1
     }
   ],
   "members": [
@@ -315,52 +315,17 @@
       "returnedDate": "Mon May 20 2024 13:20:52 GMT-0500"
     },
     {
-      "id": "bb5f",
-      "memberId": "97f6",
-      "bookId": "B001",
-      "borrowedDate": "Mon May 20 2024 13:26:16 GMT-0500",
-      "returnedDate": "Mon May 20 2024 13:27:10 GMT-0500"
-    },
-    {
-      "id": "71c7",
+      "id": "e9cc",
       "memberId": "M001",
-      "bookId": "d8ea",
-      "borrowedDate": "Mon May 20 2024 13:49:07 GMT-0500",
-      "returnedDate": "Mon May 20 2024 13:53:21 GMT-0500"
-    },
-    {
-      "id": "db97",
-      "memberId": "M001",
-      "bookId": "d8ea",
-      "borrowedDate": "Mon May 20 2024 13:55:19 GMT-0500",
-      "returnedDate": "Mon May 20 2024 14:04:29 GMT-0500"
-    },
-    {
-      "id": "dd9e",
-      "memberId": "97f6",
-      "bookId": "d8ea",
-      "borrowedDate": "Mon May 20 2024 14:01:14 GMT-0500",
-      "returnedDate": "Mon May 20 2024 14:06:24 GMT-0500"
-    },
-    {
-      "id": "f319",
-      "memberId": "97f6",
       "bookId": "B002",
-      "borrowedDate": "Fri May 24 2024 19:45:18 GMT-0500",
-      "returnedDate": "Fri May 24 2024 19:45:54 GMT-0500"
-    },
-    {
-      "id": "f491",
-      "memberId": "97f6",
-      "bookId": "d8ea",
-      "borrowedDate": "2024-05-25T00:49:18.156Z",
+      "borrowedDate": "Fri May 24 2024 20:51:19 GMT-0500",
       "returnedDate": null
     },
     {
-      "id": "ef03",
-      "memberId": "c2a7",
-      "bookId": "40d2",
-      "borrowedDate": "2024-05-25T00:54:27.991Z",
+      "id": "d530",
+      "memberId": "a91f",
+      "bookId": "B001",
+      "borrowedDate": "Fri May 24 2024 21:06:42 GMT-0500",
       "returnedDate": null
     }
   ],
