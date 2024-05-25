@@ -184,19 +184,19 @@
       "id": "C001",
       "bookId": "B001",
       "numberOfCopies": 10,
-      "availableCopies": 3
+      "availableCopies": 2
     },
     {
       "id": "C002",
       "bookId": "B002",
       "numberOfCopies": 5,
-      "availableCopies": 2
+      "availableCopies": 3
     },
     {
       "id": "C003",
       "bookId": "40d2",
       "numberOfCopies": 15,
-      "availableCopies": 3
+      "availableCopies": 2
     },
     {
       "id": "C004",
@@ -208,7 +208,7 @@
       "id": "C005",
       "bookId": "d8ea",
       "numberOfCopies": 15,
-      "availableCopies": 1
+      "availableCopies": 3
     }
   ],
   "members": [
@@ -308,24 +308,59 @@
       "returnedDate": "Mon May 20 2024 13:12:01 GMT-0500"
     },
     {
-      "id": "fdbb",
-      "memberId": "c2a7",
-      "bookId": "40d2",
-      "borrowedDate": "Mon May 20 2024 13:16:49 GMT-0500",
-      "returnedDate": "Mon May 20 2024 13:20:52 GMT-0500"
+      "id": "a15d",
+      "memberId": "M001",
+      "bookId": "B001",
+      "borrowedDate": "Sat May 25 2024 10:05:05 GMT-0500",
+      "returnedDate": "Sat May 25 2024 10:05:51 GMT-0500"
     },
     {
-      "id": "e9cc",
+      "id": "eb59",
+      "memberId": "97f6",
+      "bookId": "B001",
+      "borrowedDate": "Sat May 25 2024 10:05:11 GMT-0500",
+      "returnedDate": "Sat May 25 2024 10:05:59 GMT-0500"
+    },
+    {
+      "id": "8e28",
+      "memberId": "c2a7",
+      "bookId": "B001",
+      "borrowedDate": "Sat May 25 2024 10:05:20 GMT-0500",
+      "returnedDate": "Sat May 25 2024 10:06:05 GMT-0500"
+    },
+    {
+      "id": "b076",
       "memberId": "M001",
-      "bookId": "B002",
-      "borrowedDate": "Fri May 24 2024 20:51:19 GMT-0500",
+      "bookId": "B001",
+      "borrowedDate": "Sat May 25 2024 10:13:57 GMT-0500",
       "returnedDate": null
     },
     {
-      "id": "d530",
-      "memberId": "a91f",
+      "id": "7191",
+      "memberId": "97f6",
       "bookId": "B001",
-      "borrowedDate": "Fri May 24 2024 21:06:42 GMT-0500",
+      "borrowedDate": "Sat May 25 2024 10:14:02 GMT-0500",
+      "returnedDate": null
+    },
+    {
+      "id": "524d",
+      "memberId": "c2a7",
+      "bookId": "B001",
+      "borrowedDate": "Sat May 25 2024 10:14:07 GMT-0500",
+      "returnedDate": null
+    },
+    {
+      "id": "439b",
+      "memberId": "dc44",
+      "bookId": "B002",
+      "borrowedDate": "2024-05-25T15:15:15.248Z",
+      "returnedDate": null
+    },
+    {
+      "id": "2f8c",
+      "memberId": "38cb",
+      "bookId": "40d2",
+      "borrowedDate": "Sat May 25 2024 10:21:20 GMT-0500",
       "returnedDate": null
     }
   ],

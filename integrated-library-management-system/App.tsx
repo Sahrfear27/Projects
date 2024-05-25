@@ -98,10 +98,11 @@ export default function App() {
   async function loadTransactions() {
     try {
       const response = await libraryServices.getTransactions();
+      // console.log(response.data);
       if (response.status == 200) {
         dispatch({
-          type: "transaction",
-          payload: { transaction: response.data },
+          type: "transactions",
+          payload: { transactions: response.data },
         });
       }
     } catch (error) {

@@ -36,7 +36,7 @@ export default function BorrowBook({ route }: Props) {
       const newCatalog = { ...bookCatalog };
 
       // Check if the user has already borrowed the book
-      const previousTransaction = state.transaction?.find(
+      const previousTransaction = state.transactions?.find(
         (existingTransactions) =>
           existingTransactions.memberId === selectedMember &&
           existingTransactions.bookId === newCatalog.bookId &&
@@ -70,27 +70,26 @@ export default function BorrowBook({ route }: Props) {
           returnedDate: null,
         };
 
-        // Update the state before making the API call
-        const updatedTransactions = [
-          ...(state.transaction || []),
-          newTransaction,
-        ];
-        dispatch({
-          type: "transaction",
-          payload: { transaction: updatedTransactions },
-        });
-
         const transactionResponse = await libraryServices.borrowTransaction(
           newTransaction
         );
+
         if (transactionResponse.status === 201) {
+          const updatedTransactions = [
+            ...(state.transactions || []),
+            newTransaction,
+          ];
+          console.log(`State Before Dispatch`, state.transactions);
+          dispatch({
+            type: "transaction",
+            payload: { transactions: updatedTransactions },
+          });
+          console.log(`State After Dispatch`, state.transactions);
           Alert.alert("Borrow Successful");
           navigation.goBack();
         } else {
-          Alert.alert("Failed to register borrow transaction");
+          Alert.alert("Fail to Borrow");
         }
-      } else {
-        Alert.alert("Failed to update catalog");
       }
     } catch (error) {
       Alert.alert("Error Occur");

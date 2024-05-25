@@ -7,7 +7,6 @@ import transactionStyle from "./Styles";
 
 export default function TransactionList() {
   const { state } = useContext(GlobalContex);
-
   return (
     <SafeAreaView style={transactionStyle.container}>
       <ImageBackground
@@ -16,7 +15,7 @@ export default function TransactionList() {
         style={transactionStyle.imgBackground}
       />
       <FlatList
-        data={state.transaction}
+        data={state.transactions}
         renderItem={({ item, index }) => (
           <TransactionObject data={item} index={index} />
         )}

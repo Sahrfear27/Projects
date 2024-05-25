@@ -53,6 +53,31 @@ export default function TransactionObject({ data, index }: Props) {
                 letterSpacing: 1.5,
               }}
             >
+              Id :
+            </Text>
+            <Text
+              style={{
+                color: "#1c1917",
+                fontSize: 17,
+                fontFamily: "Trebuchet MS",
+                fontWeight: "300",
+                letterSpacing: 2,
+              }}
+            >
+              {" "}
+              {data.id}
+            </Text>
+          </Text>
+          <Text>
+            <Text
+              style={{
+                color: "#1c1917",
+                fontSize: 20,
+                fontWeight: "light",
+                fontFamily: "Times New Roman",
+                letterSpacing: 1.5,
+              }}
+            >
               MemberId:
             </Text>{" "}
             <Text

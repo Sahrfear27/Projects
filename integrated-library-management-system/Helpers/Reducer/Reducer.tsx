@@ -14,7 +14,7 @@ export const INITIAL_STATE = {
   publishers: [],
   members: [],
   catalog: [],
-  transaction: [],
+  transactions: [],
   logIn: false,
 };
 
@@ -25,7 +25,7 @@ export type StateType = {
   publishers?: PublisherType[];
   members?: MemberType[];
   catalog?: CatalogType[];
-  transaction?: TransactionType[];
+  transactions?: TransactionType[];
   logIn?: boolean;
 };
 
@@ -76,17 +76,17 @@ export function reducer(state: StateType, action: ActionType) {
     case "catalog":
       return { ...state, catalog: payload.catalog ?? state.catalog };
 
-    case "transaction":
+    case "transactions":
       return {
         ...state,
-        transaction: payload.transaction ?? state.transaction,
+        transactions: payload.transactions ?? state.transactions,
       };
     case "add-transaction":
       return {
         ...state,
-        transaction: [
-          ...(state.transaction ? state.transaction : []),
-          ...(payload.transaction ? payload.transaction : []),
+        transactions: [
+          ...(state.transactions ? state.transactions : []),
+          ...(payload.transactions ? payload.transactions : []),
         ],
       };
     case "logIn":
