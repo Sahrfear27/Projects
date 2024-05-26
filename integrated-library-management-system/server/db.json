@@ -2,8 +2,8 @@
   "books": [
     {
       "id": "B001",
-      "title": "Understanding",
-      "genre": "Education",
+      "title": "Beginning Javascript",
+      "genre": "Programming",
       "category": "Computer Sciences",
       "authorIDs": [
         "A001"
@@ -46,7 +46,8 @@
       "genre": "Full-Stack",
       "category": "Programming",
       "authorIDs": [
-        "A002"
+        "A002",
+        "89b6"
       ],
       "publisherId": "993f"
     },
@@ -60,27 +61,6 @@
         "A001"
       ],
       "publisherId": "993f"
-    },
-    {
-      "id": "8d2e",
-      "title": "Science",
-      "genre": "Jdjdjd",
-      "category": "Denjddjd",
-      "publisherId": "56d5",
-      "authorIDs": [
-        "A001"
-      ]
-    },
-    {
-      "id": "e3de",
-      "title": "MAKSKSKS",
-      "genre": "AKAKKAAK",
-      "category": "SKSKSKSK",
-      "publisherId": "c6a3",
-      "authorIDs": [
-        "A002",
-        "A003"
-      ]
     }
   ],
   "authors": [
@@ -119,6 +99,12 @@
       "name": "Mary Jane",
       "email": "mary@miu.edu",
       "phone": "392-091-1122"
+    },
+    {
+      "id": "89b6",
+      "name": "Sheila Smith",
+      "email": "sheila@miu.edu",
+      "phone": "669-092-9900"
     }
   ],
   "publishers": [
@@ -175,7 +161,7 @@
       "id": "623f",
       "name": "Books Publishing",
       "email": "books@gmail.com",
-      "phone": "292-000-111",
+      "phone": "292-000-222",
       "address": "4914 San Ramon Way"
     }
   ],
@@ -184,13 +170,13 @@
       "id": "C001",
       "bookId": "B001",
       "numberOfCopies": 10,
-      "availableCopies": 0
+      "availableCopies": 3
     },
     {
       "id": "C002",
       "bookId": "B002",
       "numberOfCopies": 5,
-      "availableCopies": 2
+      "availableCopies": 0
     },
     {
       "id": "C003",
@@ -202,13 +188,13 @@
       "id": "C004",
       "bookId": "869f",
       "numberOfCopies": 8,
-      "availableCopies": 3
+      "availableCopies": 5
     },
     {
       "id": "C005",
       "bookId": "d8ea",
       "numberOfCopies": 15,
-      "availableCopies": 2
+      "availableCopies": 3
     }
   ],
   "members": [
@@ -322,52 +308,59 @@
       "returnedDate": "Sat May 25 2024 12:07:52 GMT-0500"
     },
     {
-      "id": "53b5",
+      "id": "e549",
+      "memberId": "M001",
+      "bookId": "B001",
+      "borrowedDate": "Sat May 25 2024 16:25:06 GMT-0500",
+      "returnedDate": "Sat May 25 2024 16:26:20 GMT-0500"
+    },
+    {
+      "id": "aaf6",
       "memberId": "97f6",
       "bookId": "B001",
-      "borrowedDate": "Sat May 25 2024 12:06:44 GMT-0500",
-      "returnedDate": "Sat May 25 2024 12:07:59 GMT-0500"
+      "borrowedDate": "Sat May 25 2024 16:25:21 GMT-0500",
+      "returnedDate": "Sat May 25 2024 16:26:48 GMT-0500"
     },
     {
-      "id": "f1fb",
+      "id": "dd41",
       "memberId": "c2a7",
       "bookId": "B001",
-      "borrowedDate": "Sat May 25 2024 12:06:51 GMT-0500",
-      "returnedDate": "Sat May 25 2024 12:08:04 GMT-0500"
+      "borrowedDate": "Sat May 25 2024 16:25:32 GMT-0500",
+      "returnedDate": "Sat May 25 2024 16:27:03 GMT-0500"
     },
     {
-      "id": "66a0",
-      "memberId": "461e",
+      "id": "bb38",
+      "memberId": "97f6",
       "bookId": "B002",
-      "borrowedDate": "Sat May 25 2024 12:08:22 GMT-0500",
-      "returnedDate": "Sat May 25 2024 12:09:39 GMT-0500"
+      "borrowedDate": "Sat May 25 2024 16:27:27 GMT-0500",
+      "returnedDate": "Sat May 25 2024 16:28:19 GMT-0500"
     },
     {
-      "id": "5287",
-      "memberId": "c2a7",
+      "id": "a7c0",
+      "memberId": "97f6",
       "bookId": "d8ea",
-      "borrowedDate": "Sat May 25 2024 12:11:42 GMT-0500",
-      "returnedDate": null
+      "borrowedDate": "Sun May 26 2024 08:51:56 GMT-0500",
+      "returnedDate": "Sun May 26 2024 08:53:09 GMT-0500"
     },
     {
-      "id": "7f5c",
-      "memberId": "e11a",
-      "bookId": "869f",
-      "borrowedDate": "Sat May 25 2024 12:21:19 GMT-0500",
-      "returnedDate": null
-    },
-    {
-      "id": "573f",
+      "id": "6394",
       "memberId": "M001",
+      "bookId": "d8ea",
+      "borrowedDate": "Sun May 26 2024 08:52:11 GMT-0500",
+      "returnedDate": "Sun May 26 2024 08:53:33 GMT-0500"
+    },
+    {
+      "id": "2f19",
+      "memberId": "a91f",
       "bookId": "B002",
-      "borrowedDate": "Sat May 25 2024 12:35:12 GMT-0500",
+      "borrowedDate": "Sun May 26 2024 08:53:44 GMT-0500",
       "returnedDate": null
     },
     {
-      "id": "05b2",
+      "id": "efaf",
       "memberId": "38cb",
-      "bookId": "B001",
-      "borrowedDate": "Sat May 25 2024 12:49:03 GMT-0500",
+      "bookId": "B002",
+      "borrowedDate": "Sun May 26 2024 08:53:56 GMT-0500",
       "returnedDate": null
     }
   ],
@@ -378,34 +371,14 @@
       "email": "peter@miu.edu"
     },
     {
-      "id": "ac3e",
-      "name": "Sahrfear",
-      "email": "sahr@miu.edu"
+      "id": "f357",
+      "name": "Alves",
+      "email": "alves@gmail.com"
     },
     {
-      "id": "c286",
-      "name": "Mary",
-      "email": "mary@miu.edu"
-    },
-    {
-      "id": "5841",
-      "name": "Kumba",
-      "email": "kumba@miu.edu"
-    },
-    {
-      "id": "bbbc",
-      "name": "Erick",
-      "email": "erick@miu.edu"
-    },
-    {
-      "id": "e530",
-      "name": "Abu",
-      "email": "abu@miu.edu"
-    },
-    {
-      "id": "d6da",
-      "name": "John",
-      "email": "john@gmail"
+      "id": "6d71",
+      "name": "Alex",
+      "email": "alex@gmail.com"
     }
   ]
 }

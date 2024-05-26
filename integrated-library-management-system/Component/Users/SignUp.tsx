@@ -30,7 +30,7 @@ export default function SignUp({ setSignup }: Props) {
       };
       if (name.trim() === "" || email.trim() === "") {
         return Alert.alert("Please enter input");
-      } else if (isValidEmail(email)) {
+      } else if (!isValidEmail(email)) {
         return Alert.alert("Invalid Email");
       } else {
         const existingEmail = await libraryServices.getUser();
