@@ -1,0 +1,47 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+.day {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.quotes {
+    font-size: 1.25em;
+    color: #495057;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+.author {
+    font-size: 1em;
+    color: #6c757d;
+    margin-top: 10px;
+}
+
+.newQuote button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newQuote button:hover {
+    background-color: #0056b3;
+}
