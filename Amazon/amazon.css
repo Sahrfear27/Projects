@@ -219,3 +219,150 @@ width: 800px;
     }
     
 }
+
+
+
+/*  */
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .flexContent1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #131921;
+    padding: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .flexContent1 div, .flexContent1 a {
+    color: white;
+    margin: 5px;
+  }
+  
+  .location-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .location-info a {
+    margin-right: 10px;
+  }
+  
+  .box1 {
+    flex-grow: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+  }
+  
+  .box1 input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .language, .account, .orders, .cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .secondHeader {
+    background-color: #232F3E;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .secondHeader .firstSubHeader, .secondHeader .secondSubHeader {
+    display: flex;
+    align-items: center;
+  }
+  
+  .secondHeader .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .secondHeader .nav-links span {
+    margin: 0 10px;
+  }
+  
+  .promo-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #FEBD69;
+    padding: 10px;
+  }
+  
+  .promo-links span {
+    margin: 0 10px;
+  }
+  
+  .forthHeader, .gridContent1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  
+  .image-gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .category-links {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .category-links div {
+    margin: 5px 0;
+  }
+  
+
+  @media (max-width: 768px) {
+    .flexContent1, .secondHeader, .forthHeader, .gridContent1 {
+      flex-direction: column;
+    }
+  
+    .flexContent1 div, .secondHeader .nav-links, .promo-links, .image-gallery {
+      text-align: center;
+    }
+  
+    .flexContent1 div, .secondHeader .nav-links span, .promo-links span {
+      margin: 10px 0;
+    }
+  
+    .location-info {
+      flex-direction: column;
+    }
+  
+    .box1 {
+      width: 100%;
+      margin: 10px 0;
+    }
+  
+    .box1 input {
+      width: calc(100% - 20px);
+    }
+  
+    .image-gallery {
+      grid-template-columns: 1fr;
+    }
+  } */
+  
